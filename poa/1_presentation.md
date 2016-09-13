@@ -272,3 +272,27 @@ Maintenant, 3 types de tissage :
                  | .jar   |-------|
                  |--------|
 ```
+
+* le tissage au chargement des classes (bad-time weaving)
+
+Du fait appel à un agent JVM qui réalise les options de tissage lors du 
+chargement des types.
+
+* léger surcoût à l'exécution
+* possibilité de tisser à chaud sans recompiler
+
+La configuration du tisseur est décrite dans un fichier XML de nom `aop.xml`, 
+dans le répertoire `META-INF`, accessible depuis le classpath.
+
+## Coûts et apports de la POA
+
+### Coûts 
+
+* Temps d'exécution légèrement supérieur (peu perceptible).
+* Temps d'apprentissage *diminué psychologiquement par `@AspectJ`*.
+
+### Apports
+
+* moins d'enchevêtrement des préoccupations, moins de dispersion de code.
+* plus de modularité.
+* code plus facile à débugger, maintenir, reutiliser.
