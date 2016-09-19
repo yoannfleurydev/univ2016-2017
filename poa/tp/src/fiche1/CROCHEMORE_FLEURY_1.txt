@@ -1,0 +1,7 @@
+# CROCHEMORE FLEURY 1
+
+`call` va s'activer sur les appels clairement écris dans le code
+et `execution` va s'activer sur tous les appels, même implicite comme
+`toString()`. `call` est un point de jonction qui va être exécuter dans
+la classe appelante de la méthode, `execution` va s'exécuter dans la
+méthode en elle-même.
