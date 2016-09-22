@@ -13,9 +13,6 @@ public aspect LaboTracer {
            && !set(* *)
            && !get(* *)
            && !within(LaboTracer);
-//            call(fiche1.classes.*.new(..)) ||
-//            call(* fiche1.classes.*.*(..))) &&
-
 
     before() : print() {
         printIndentation();
