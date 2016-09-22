@@ -4,8 +4,17 @@ public aspect LaboTracer {
     private static int INDENTATION;
 
     pointcut print() :
-        call(fiche1.labo.*.new(..)) ||
-        call(* fiche1.*.*(..));
+        cflowbelow(execution(* fiche1.labo.C.main(..)))
+           && !initialization(*.new(..))
+           && !staticinitialization(*)
+           && !preinitialization(*.new(..))
+           && !execution(*.new(..))
+           && !execution(* *.*(..))
+           && !set(* *)
+           && !get(* *)
+           && !within(LaboTracer);
+//            call(fiche1.classes.*.new(..)) ||
+//            call(* fiche1.classes.*.*(..))) &&
 
 
     before() : print() {
