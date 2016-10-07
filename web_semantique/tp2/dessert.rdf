@@ -1,0 +1,15 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+
+"Crème brûlée classique et son sablé"              rdf:price 8  .
+"Paris-Brest"                                      rdf:price 10 .
+"Tarte au citron revisitée"                        rdf:price 9  .
+"Café gourmand de notre pâtissier"                 rdf:price 10 .
+"Tarte fine aux pommes, caramel au beurre fermier" rdf:price 8  .
+"Mille-feuille aux trois chocolats"                rdf:price 9  .
+
+"Crème brûlée classique et son sablé"              rdf:translation "Classic crème brulée and tis shortbread cookie" .
+"Paris-Brest"                                      rdf:translation "Paris-Brest Cake"                               .
+"Tarte au citron revisitée"                        rdf:translation "Lemon tar our way"                              .
+"Café gourmand de notre pâtissier"                 rdf:translation "Coffee with an assortment of pastries"          .
+"Tarte fine aux pommes, caramel au beurre fermier" rdf:translation "Thin apple tart with caramel"                   .
+"Mille-feuille aux trois chocolats"                rdf:translation "Three chocolates mille-feuille"                 .
