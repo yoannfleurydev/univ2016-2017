@@ -13,7 +13,10 @@ public:
     Employee(const char * ch = "");
 
     Employee();
-    void print();
+
+    virtual void print();
+
+    virtual void put_ident(int i) = 0;
 };
 
 

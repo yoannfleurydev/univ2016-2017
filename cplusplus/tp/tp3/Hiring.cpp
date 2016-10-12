@@ -1,5 +1,13 @@
+#include <iostream>
 #include "Hiring.h"
 
 using namespace std;
 
-Hiring::Hiring(int idNumber, const char * _name) : Employee(_name), idNumber(idNumber) {}
+void Hiring::put_ident(int i) {
+    this->idNumber = i;
+}
+
+void Hiring::print() {
+    Employee::print();
+    cout << "Matricule : " << this->idNumber << endl;
+}
