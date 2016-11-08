@@ -27,9 +27,7 @@ sécuriser la connexion.
 
 #### Quel est le niveau de sécurité de ces algorithmes ?
 
-
-
-#### Pour les algorithmes de chiffrement symétriques, précisez s’ils sont par flot ou par bloc, pour les algorithmes asymétriques indiquez le problème mathématique sur lequel sont fondés leur sécurité.
+Plutôt correct pour l'époque actuelle.
 
 #### Openssl vous indique une erreur (code 20), que signifie-t-elle ?
 
@@ -58,10 +56,6 @@ Famille AES et RSA, asymétrique.
 Ce sont des algorithmes de chiffrement asymétrique. Ils permettent de
 sécuriser la connexion.
 
-#### Quel est le niveau de sécurité de ces algorithmes ?
-
-#### Pour les algorithmes de chiffrement symétriques, précisez s’ils sont par flot ou par bloc, pour les algorithmes asymétriques indiquez le problème mathématique sur lequel sont fondés leur sécurité.
-
 #### Openssl vous indique une erreur (code 20), que signifie-t-elle ?
 
 Aucune erreur n'est apparue.
@@ -88,10 +82,6 @@ Famille AES et RSA, asymétrique.
 
 Ce sont des algorithmes de chiffrement asymétrique. Ils permettent de
 sécuriser la connexion.
-
-#### Quel est le niveau de sécurité de ces algorithmes ?
-
-#### Pour les algorithmes de chiffrement symétriques, précisez s’ils sont par flot ou par bloc, pour les algorithmes asymétriques indiquez le problème mathématique sur lequel sont fondés leur sécurité.
 
 #### Openssl vous indique une erreur (code 20), que signifie-t-elle ?
 
@@ -236,10 +226,24 @@ dsa 2048 bits 0.000416s 0.000441s   2403.1   2268.2
 
 ### La vitesse des algorithmes symétriques entre eux.
 
+```
+type             16 bytes     64 bytes    256 bytes   1024 bytes   8192 bytes
+des cbc          56303.11k    58302.08k    58569.73k    58699.09k    58641.07k
+des ede3         21440.66k    21646.17k    21720.32k    21637.12k    21615.96k
+aes-128 cbc     103614.83k   113596.89k   115324.42k   115870.72k   117172.91k
+aes-192 cbc      87227.97k    94523.75k    96367.70k    96186.37k    96701.10k
+aes-256 cbc      75812.35k    80439.42k    82203.73k    82261.67k    82974.04k
+```
 
 ### La vitesse des algorithmes asymétriques entre eux.
 
-
+```
+sign    verify    sign/s verify/s
+rsa 2048 bits 0.000797s 0.000035s   1255.3  28400.5
+rsa 4096 bits 0.008554s 0.000128s    116.9   7804.6
+sign    verify    sign/s verify/s
+dsa 2048 bits 0.000416s 0.000441s   2403.1   2268.2
+```
 
 ### La vitesse des algorithmes asymétriques en signature ou vérification de signature.
 
@@ -261,11 +265,11 @@ Plus la taille de la clef est grande, plus le calcul va être long.
 openssl enc -d -base64 -in img_base64.txt -out image.png
 ```
 
-![Image en sortie](./image.png)
-
 ### Que récupérez vous dans image.png ?
 
-L'image ci-dessus.
+L'image suivante :
+
+![Image en sortie](./image.png)
 
 ### Pourquoi la commande ne demande-t-elle pas de mot de passe ?
 
@@ -283,6 +287,8 @@ Tous les caractères de la table ASCII.
 ```
 
 ### Quelle est l’utilité de base64 ?
+
+
 
 ## Exercice 4 Chiffrement symétrique
 
@@ -312,3 +318,15 @@ souhaite chiffrer.
 * **salt** : grain de sel, permet d'ajouter de l'aléa.
 * **key** : permet de chiffrer et déchiffrer le message
 * **iv** : permet de démarrer avec quelque-chose
+
+### Relancez la commande, que constatez vous ?
+
+Toutes les variables sont différentes.
+
+## Exercice 5 : Messages chiffrés
+
+```
+salt=053CBF1F872484CA
+key=9D68254DF9CC40C67A42F99E79F3C596
+iv =F0722A1907EA2F523C2390322ECB8666
+```
