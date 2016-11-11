@@ -346,3 +346,11 @@ Afin de voir le contenu
 od chiffre_mystere.bmp
 ```
 
+Pour extraire les 54 premiers octets d'une image bmp nous avons utilisé :
+
+```sh
+head -c 54 [nom_fichier_bmp]
+```
+
+Nous avons ensuite placé ces 54 octets dans un fichier .bmp vierge et pour finir nous avons ajouté le contenu de chiffre_mystere.bmp. On obtient alors une image bruitée, en effet nous avons juste corrigé le header mais en rien déchiffré le fichier. De même pour le deuxième fichier
+
