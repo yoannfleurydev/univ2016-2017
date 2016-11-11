@@ -2,7 +2,7 @@
 
 ## Exercice 1 (Suites chiffrantes de TLS)
 
-### www.google.fr
+### [Google](www.google.fr)
 
 #### Quel version de TLS est utilisée ?
 
@@ -15,23 +15,6 @@
 * **Chrome** : AES_128_GCM
 * **Firefox** : TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 * **openssl** : ECDHE-RSA-AES128-GCM-SHA256
-
-#### À quelles familles d'algorithmes appartiennent-ils ?
-
-Famille AES et RSA, asymétrique.
-
-#### Quels sont leur objectifs ?
-
-Ce sont des algorithmes de chiffrement asymétrique. Ils permettent de
-sécuriser la connexion.
-
-#### Quel est le niveau de sécurité de ces algorithmes ?
-
-Plutôt correct pour l'époque actuelle.
-
-#### Openssl vous indique une erreur (code 20), que signifie-t-elle ?
-
-Aucune erreur n'est apparue.
 
 ### cas.univ-rouen.fr
 
@@ -47,19 +30,6 @@ Aucune erreur n'est apparue.
 * **Firefox** : TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 * **openssl** : ECDHE-RSA-AES256-GCM-SHA384
 
-#### À quelles familles d'algorithmes appartiennent-ils ?
-
-Famille AES et RSA, asymétrique.
-
-#### Quels sont leur objectifs ?
-
-Ce sont des algorithmes de chiffrement asymétrique. Ils permettent de
-sécuriser la connexion.
-
-#### Openssl vous indique une erreur (code 20), que signifie-t-elle ?
-
-Aucune erreur n'est apparue.
-
 ### info.isl.ntt.co.jp
 
 #### Quel version de TLS est utilisée ?
@@ -74,10 +44,6 @@ Aucune erreur n'est apparue.
 * **Firefox** : TLS_RSA_WITH_AES_256_CBC_SHA
 * **openssl** : AES256-SHA256
 
-#### À quelles familles d'algorithmes appartiennent-ils ?
-
-Famille AES et RSA, asymétrique.
-
 #### Quels sont leur objectifs ?
 
 Ce sont des algorithmes de chiffrement asymétrique. Ils permettent de
@@ -85,11 +51,28 @@ sécuriser la connexion.
 
 #### Openssl vous indique une erreur (code 20), que signifie-t-elle ?
 
-Aucune erreur n'est apparue.
+Aucune erreur n'est apparue. Mais si celle-ci intervient, il ne reconnait pas l'émetteur 
+du certificat.
+
+### Quels sont les objectifs de ces algorithmes ?
+
+Sécuriser la connexion entre le client et le serveur pour l'échange de données. Ils 
+permettent l'**authentification**.
+
+### Quel est le niveau de sécurité de ces algorithmes ? 
+
+Actuellement, le niveau de ces algorithmes est bon.
+
+### Détails
+
+La suite chiffrante peut varier en fonction des serveurs, des clients et du protocole
+utilisé entre les deux, donc les suites chiffrantes varient entre Chrome, Firefox, et 
+la commande `openssl`.
 
 ## Exercice 2 : Vitesse
 
-Trace obtenu :
+Trace obtenu sur une machine DELL Inspiron 17, processeur Intel Core I5 cadencé à 
+1.7GHz accompagné de 8Go de RAM fonctionnant sous Linux Mint 18.0 :
 
 ```
 aes-256-cbc rsa2048 rsa4096 dsa2048 ecdsa ecdh
@@ -235,29 +218,42 @@ aes-192 cbc      87227.97k    94523.75k    96367.70k    96186.37k    96701.10k
 aes-256 cbc      75812.35k    80439.42k    82203.73k    82261.67k    82974.04k
 ```
 
+On peut voir que `aes-128 cbc` est le plus rapide des algorithmes, et cela parait
+évident. Son niveau de sécurité est moindre. En revanche `des ede3` est le plus long
+des algorithmes, on peut donc penser que son niveau de sécurité est plus fort.
+
 ### La vitesse des algorithmes asymétriques entre eux.
 
 ```
-sign    verify    sign/s verify/s
+                  sign    verify    sign/s verify/s
 rsa 2048 bits 0.000797s 0.000035s   1255.3  28400.5
 rsa 4096 bits 0.008554s 0.000128s    116.9   7804.6
 sign    verify    sign/s verify/s
 dsa 2048 bits 0.000416s 0.000441s   2403.1   2268.2
 ```
 
-### La vitesse des algorithmes asymétriques en signature ou vérification de signature.
-
-
 ### La vitesse des algorithmes asymétriques en fonction de la taille de la clef et du niveau de sécurité.
 
 Plus la taille de la clef est grande, plus le calcul va être long.
 
-### Calculer le rapport entre la vitesse des algos symétriques et asymétriques.
+### La vitesse de l’AES si vous utilisez l’EVP : `openssl speed -evp aes-128-cbc`
 
+```
+Doing aes-128-cbc for 3s on 16 size blocks: 7986774 aes-128-cbc's in 2.99s
+Doing aes-128-cbc for 3s on 64 size blocks: 2189442 aes-128-cbc's in 3.00s
+Doing aes-128-cbc for 3s on 256 size blocks: 555333 aes-128-cbc's in 2.97s
+Doing aes-128-cbc for 3s on 1024 size blocks: 137161 aes-128-cbc's in 2.91s
+Doing aes-128-cbc for 3s on 8192 size blocks: 17697 aes-128-cbc's in 3.00s
+OpenSSL 1.0.1f 6 Jan 2014
+built on: Fri Sep 23 12:19:57 UTC 2016
+options:bn(64,64) rc4(16x,int) des(idx,cisc,16,int) aes(partial) blowfish(idx) 
+compiler: cc -fPIC -DOPENSSL_PIC -DOPENSSL_THREADS -D_REENTRANT -DDSO_DLFCN -DHAVE_DLFCN_H -m64 -DL_ENDIAN -DTERMIO -g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -Wl,-Bsymbolic-functions -Wl,-z,relro -Wa,--noexecstack -Wall -DMD32_REG_T=int -DOPENSSL_IA32_SSE2 -DOPENSSL_BN_ASM_MONT -DOPENSSL_BN_ASM_MONT5 -DOPENSSL_BN_ASM_GF2m -DSHA1_ASM -DSHA256_ASM -DSHA512_ASM -DMD5_ASM -DAES_ASM -DVPAES_ASM -DBSAES_ASM -DWHIRLPOOL_ASM -DGHASH_ASM
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes     64 bytes    256 bytes   1024 bytes   8192 bytes
+aes-128-cbc      42738.59k    46708.10k    47867.09k    48265.59k    48324.61k
+```
 
-
-### La vitesse de l’AES en fonction de la taille de clef.
-### La vitesse de l’AES si vous utilisez l’EVP : openssl speed -evp aes-128-cbc
+Beaucoup moins rapide si on utilise l'EVP.
 
 ## Base 64
 
@@ -286,9 +282,12 @@ Tous les caractères de la table ASCII.
 -rw-r--r-- 1 yfleury yfleury 200406 Nov  2 17:59 img_base64.txt
 ```
 
+Le fichier encodé est plus grand que le fichier de base. Le poids est 
+donc à prendre en considération avant d'utiliser ce système de transmission.
+
 ### Quelle est l’utilité de base64 ?
 
-
+D'éviter le binaire là où le textuel fait l'affaire.
 
 ## Exercice 4 Chiffrement symétrique
 
@@ -321,12 +320,29 @@ souhaite chiffrer.
 
 ### Relancez la commande, que constatez vous ?
 
-Toutes les variables sont différentes.
+Toutes les variables sont différentes. C'est donc soit aléatoire, soit géré en fonction du `timestamp`.
 
 ## Exercice 5 : Messages chiffrés
+
+On lance la commande suivante afin de chiffrer notre message :
+
+`openssl enc -aes128 -a -in clair.txt -out De-FLEURY-pour-CROCHEMORE.txt`
+
 
 ```
 salt=053CBF1F872484CA
 key=9D68254DF9CC40C67A42F99E79F3C596
 iv =F0722A1907EA2F523C2390322ECB8666
 ```
+
+Ensuite, nous déposons ce fichier sur la plateforme afin que ce soit disponible
+au public. Nous transmettons ensuite le mot de passe de façon asymétrique à la 
+personne qui doit déchiffrer le message.
+
+## Exercice 6 : Attaque du mode ECB
+
+Afin de voir le contenu
+```sh
+od chiffre_mystere.bmp
+```
+
