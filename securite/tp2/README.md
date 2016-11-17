@@ -23,7 +23,7 @@ destinataire lui permettra de déchiffrer le message.
 ### Installation de GPG
 
 Étant sous environnement GNU/Linux, pas besoin d'installer `gpg` car il est
-déjà dessus.
+déjà installé sur le système.
 
 ### Exercice 1
 
@@ -32,7 +32,8 @@ déjà dessus.
 On choisit une taille de 3072 afin de pouvoir avoir des clefs assez forte
 pour les prochaines années, sachant que le niveau de sécurité (en bits) sera
 autour de 128 en 2020. C'est donc parfait car 3072 en taille de clef pour
-DSA-El-Gamal fait 128 bits.
+DSA-El-Gamal fait 128 bits. De plus, nous avons choisi une durée de vie d'un
+an.
 
 #### À quoi servent les données qui vous sont demandées ?
 
@@ -47,7 +48,9 @@ Nous est demandé :
 
 Car le logiciel doit générer des aléas. Il faut donc favoriser les I/O de la
 machine. Le processus sera donc plus rapide si la machine est en fonctionnement
-depuis longtemps.
+depuis longtemps. La durée du processus dépend de l'entropie présent sur la 
+machine. On peut voir cette entropie grâce à la commande `cat /dev/random`
+ou encore la commande `cat /dev/urandom`.
 
 #### Lisez les informations affichées par `gpg2` lors de la génération.
 
@@ -65,7 +68,8 @@ Aucune information n'apparait lors de la génération.
      Features: MDC, Keyserver no-modify
 ```
 
-Nous avons les différents algorithmes, hachages et compressions disponibles.
+Nous avons les différents algorithmes et hashages supportés par la clef.
+*Cipher* sont les algorithmes, *Digest* sont les fonctions de hashage.
 
 #### `check`, que pouvez-vous en déduire sur la forme de diffusion des clefs ?
 
@@ -83,23 +87,32 @@ l'identité. D'autres personnes peuvent signer la clef.
 
 
 Un certificat de révocation permet de révoquer une clef. Imaginons que la
-machine prenne feu, il faut pouvoir dire que nous n'avons plus accès à la clef.
+machine prenne feu, il faut pouvoir dire que nous n'avons plus accès à la clef
+et que donc la clef est invalide. Cela peut également permettre de prévenir
+les utilisateurs que la véracité de notre clef est corrompue.
 
-Il faut conserver le certificat dans un endroit sûr.
+Il faut conserver le certificat dans un endroit sûr afin d'éviter toute perte
+ou tout vol de la clef.
 
 ## Gestion de son trousseau de clefs
 
 ### Exercice 4 (Distribution de clefs)
 
+> Lorsque vous importez des clefs publiques comme ci-dessous, vous n'avez 
+> aucune raison de penser que ce sont les bonnes clefs.
+
 #### Détailler `man in the middle`
 
 Les clefs pourraient être des fausses clefs mise en place par quelqu'un au
-centre du réseau.
+centre du réseau. `man in the middle` est quelqu'un qui se place entre deux
+interlocuteurs (qu'ils soient client ou serveur) pour intercepter les 
+messsages d'un expéditeur, de les modifier et les envoyer au destinataire.
 
 #### Quel est le lien entre l'identifiant de la clef et le _fingerprint_ ?
 
 L'identifiant de la clef est la fin du _fingerprint_. Cela permet de vérifier
-l'intégrité de la clef.
+l'intégrité de la clef. Il faudrait un énorme hasard pour que les deux 
+correspondant alors que l'intégrité de la clef n'est plus.
 
 ## GPG et messagerie
 
@@ -107,22 +120,22 @@ l'intégrité de la clef.
 
 #### Pouvez vous déchiffrer les documents que vous envoyez ?
 
-Oui, fort heureusement, comme je dispose des clefs nécessaire, je peux
-déchiffrer les messages que j'envoi.
+Oui, fort heureusement, comme on dispose des clefs nécessaire, on peut
+déchiffrer les messages que l'on envoie.
 
 #### Ceux que vous recevez ?
 
-Cela dépend. Si je dispose de la clef publique de la personne qui m'envoie le
-message, alors je peux déchiffrer ce message, sinon il m'est impossible de voir
+Cela dépend. Si nous disposons de la clef publique de la personne qui nous envoie le
+message, alors on peut déchiffrer ce message, sinon il nous est impossible de voir
 le contenu du message.
 
 #### De qui proviennent-ils ?
 
-Ils proviennent des camarades de la promotion. Pour certains, j'en suis sûr
-car j'ai leurs clefs. Pour d'autres, c'est à voir, il faudrait que je vérifie
-et qu'ensuite je signe leurs clefs histoire d'être sûr pour la suite.
+Ils proviennent des camarades de la promotion. Pour certains, nous en sommes sûr
+car nous avons leurs clefs. Pour d'autres, c'est à voir, il faudrait que nous 
+vérifions et qu'ensuite nous signons leurs clefs histoire d'être sûr pour la suite.
 
 #### Quel est le chiffrement utilisé ? Quelle est la clef de signature ?
 
-Le message est signé avec ma clef privée. Le destinataire se servira de ma clef
+Le message est signé avec la clef privée. Le destinataire se servira de la clef
 publique pour vérifier l'authenticité de l'expéditeur.
