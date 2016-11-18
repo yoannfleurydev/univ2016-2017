@@ -89,7 +89,7 @@ l'identité. D'autres personnes peuvent signer la clef.
 Un certificat de révocation permet de révoquer une clef. Imaginons que la
 machine prenne feu, il faut pouvoir dire que nous n'avons plus accès à la clef
 et que donc la clef est invalide. Cela peut également permettre de prévenir
-les utilisateurs que la véracité de notre clef est corrompue.
+les utilisateurs que l'authenticité de notre clef est corrompue.
 
 Il faut conserver le certificat dans un endroit sûr afin d'éviter toute perte
 ou tout vol de la clef.
