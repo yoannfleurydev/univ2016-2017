@@ -12,7 +12,6 @@ public class Rainbow {
 
     private JFrame frame;
     private JButton button;
-    private RainbowModel model;
 
     // CONSTRUCTEURS
     public Rainbow() {

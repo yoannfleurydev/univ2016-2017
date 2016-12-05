@@ -3,7 +3,7 @@ package fiche5.business;
 import java.awt.Color;
 
 /**
- * Notre mod?le est une s?quence de couleurs (toutes distinctes) que l'on peut
+ * Notre modèle est une s?quence de couleurs (toutes distinctes) que l'on peut
  *  parcourir cycliquement.
  * Les valeurs de getColor() apr?s chaque ex?cution de changeColor() sont
  *  celles obtenues en parcourant cycliquement le tableau COLORS.

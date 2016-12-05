@@ -1,6 +1,5 @@
 package fiche5.mvc;
 
-import fiche5.business.RainbowModel;
 import fiche5.util.ChangeState;
 import fiche5.util.Observable;
 
