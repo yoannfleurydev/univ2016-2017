@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface Subject {
     /**
-     * Le nombre d'observateurs abonnés auprès de ce sujet.
+     * Le nombre d'observateurs abonnÃ©s auprÃ¨s de ce sujet.
      */
     int countObservers();
     /**
@@ -13,11 +13,11 @@ public interface Subject {
      */
     void addObserver(Observer o);
     /**
-     * Désabonne l'observateur o.
+     * DÃ©sabonne l'observateur o.
      */
     void deleteObserver(Observer o);
     /**
-     * Notifie tous les observateurs préalablement abonnés.
+     * Notifie tous les observateurs prÃ©alablement abonn?s.
      */
     void notifyObservers();
 

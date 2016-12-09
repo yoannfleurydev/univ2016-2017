@@ -1,11 +1,19 @@
 package fiche5.mvc;
 
-import fiche5.business.RainbowModel;
-import fiche5.ihm.Rainbow;
-import fiche5.util.*;
-import fiche5.business.StdRainbowModel;
 
-import java.awt.Container;
+import fiche5.business.RainbowModel;
+import fiche5.business.StdRainbowModel;
+import fiche5.ihm.Rainbow;
+import fiche5.util.ControllerCreator;
+import fiche5.util.Observable;
+import fiche5.util.MVC;
+import fiche5.util.ChangeState;
+import fiche5.util.ModelCreator;
+import fiche5.util.Observer;
+import fiche5.util.Subject;
+import fiche5.util.ViewConfigurator;
+
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
