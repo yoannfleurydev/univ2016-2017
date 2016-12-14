@@ -224,9 +224,11 @@ clair.
 * Cookie : Permet d'envoyer les cookies au serveur.
 * Strict-Transport-Security : Permet de dire au client qu'on force le HTTPS
 * Access-Control-Allow-Origin : Permet d'éviter le Cross Origin Resource Sharing
-* Access-Control-Expose-Headers : Permet d'indiquer que les headers sont sûr à exposer.
+* Access-Control-Expose-Headers : Permet d'indiquer que les headers sont sûr à 
+exposer.
 * X-Analytics : Permet un certain nombre de collecte de données.
-* public-key-pins-report-only : Permet d'ajouter une sécurité supplémentaire pour ceux qui utilisent des certificats frauduleux.
+* public-key-pins-report-only : Permet d'ajouter une sécurité supplémentaire 
+pour ceux qui utilisent des certificats frauduleux.
 
 ### Exercice 3 (Vérification côté client)
 
