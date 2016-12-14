@@ -1,0 +1,119 @@
+[ ca ]
+default_ca	= server_ca		
+
+[ policy_client ]
+countryName             = match
+stateOrProvinceName     = match
+organizationName        = match
+organizationalUnitName  = match
+commonName              = supplied
+emailAddress            = supplied
+
+[ policy_server ]
+countryName             = match
+stateOrProvinceName     = match
+organizationName        = match
+organizationalUnitName  = match
+commonName              = supplied
+emailAddress            = optional
+
+[ req ]
+default_bits		= 2048
+#default_keyfile 	= privkey.pem
+distinguished_name	= req_distinguished_name
+x509_extensions	= server_cert
+string_mask = nombstr
+req_extensions = v3_req
+
+[ req_distinguished_name ]
+countryName			= Country Name (2 letter code)
+countryName_default		= FR
+countryName_min			= 2
+countryName_max			= 2
+stateOrProvinceName		= State or Province Name (full name)
+stateOrProvinceName_default	= Normandie
+localityName			= Locality Name (eg, city)
+localityName_default		= Saint Etienne du Rouvray
+0.organizationName		= Organization Name (eg, company)
+0.organizationName_default	= Universite de Rouen
+organizationalUnitName		= Organizational Unit Name (eg, section)
+organizationalUnitName_default	= M2 GIL 2016-2017
+commonName			= Common Name (eg, YOUR name)
+commonName_max			= 64
+emailAddress			= Email Address
+emailAddress_max		= 40
+
+[ v3_req ]
+basicConstraints = CA:FALSE
+keyUsage = nonRepudiation, digitalSignature, keyEncipherment
+
+
+[ v3_ca ]
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = keyid:always,issuer:always
+basicConstraints = critical,CA:true
+nsCertType = sslCA, emailCA
+issuerAltName = issuer:copy
+subjectAltName = email:copy
+keyUsage = critical, keyCertSign, cRLSign
+
+[ crl_ext ]
+authorityKeyIdentifier = keyid:always,issuer:always
+
+[ server_ca ]
+# chemin vers le repertoire contenant les fichiers de l'autorite
+dir = . 
+certs = $dir/certs
+crl_dir = $dir/crl
+database = $dir/index.txt
+new_certs_dir = $dir/newcerts
+certificate = $dir/cacert.crt
+serial = $dir/serial
+crl = $dir/crl.pem
+private_key = $dir/cacert.pem
+RANDFILE = $dir/.rand
+x509_extensions = server_cert
+default_days = 365
+default_crl_days = 30
+default_md = sha256
+preserve = no
+policy = policy_server
+unique_subject = yes
+
+[ client_ca ]
+dir = .
+certs = $dir/certs
+crl_dir = $dir/crl
+database = $dir/index.txt
+new_certs_dir = $dir/newcerts
+certificate = $dir/cacert.crt
+serial = $dir/serial
+crl = $dir/crl.pem
+private_key = $dir/cacert.pem
+RANDFILE = $dir/.rand
+x509_extensions = client_cert
+default_days = 365
+default_crl_days = 30
+default_md = sha256
+preserve = no
+policy = policy_client
+unique_subject = yes
+
+
+[ client_cert ]
+basicConstraints = CA:FALSE
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = keyid,issuer:always
+issuerAltName = issuer:copy
+subjectAltName = email:copy
+keyUsage = critical, digitalSignature, keyEncipherment
+extendedKeyUsage = clientAuth, emailProtection
+
+[ server_cert ]
+basicConstraints = CA:FALSE
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = keyid,issuer:always
+issuerAltName = issuer:copy
+subjectAltName = email:copy
+keyUsage = critical, digitalSignature
+extendedKeyUsage = serverAuth

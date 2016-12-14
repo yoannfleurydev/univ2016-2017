@@ -1,0 +1,100 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 2 (0x2)
+    Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=FR, ST=Normandie, L=Saint Etienne du Rouvray, O=Universite de Rouen, OU=M2 GIL 2016-2017, CN=Yoann Fleury/emailAddress=yoann.fleury@etu.univ-rouen.fr
+        Validity
+            Not Before: Dec  7 17:11:57 2016 GMT
+            Not After : Dec  7 17:11:57 2017 GMT
+        Subject: C=FR, ST=Normandie, L=Saint Etienne du Rouvray, O=Universite de Rouen, OU=M2 GIL 2016-2017, CN=localhost/emailAddress=yoann.fleury@etu.univ-rouen.fr
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:e2:64:46:84:fc:78:2d:7e:47:09:d4:31:c0:7e:
+                    8e:b5:3e:a3:4f:25:e7:fc:81:08:7f:96:cb:b8:b2:
+                    8d:a3:0a:18:52:1a:49:62:98:14:28:2b:13:e4:b1:
+                    3f:87:50:d6:53:8b:d7:3b:56:71:62:93:6d:6d:67:
+                    fe:58:06:f0:c6:5d:94:70:b7:2f:73:23:04:94:53:
+                    c0:eb:c2:d7:65:03:c5:0c:f1:0c:e4:3a:d8:ec:71:
+                    ef:8a:14:a3:4d:d9:be:77:21:de:f3:b8:9f:bc:64:
+                    09:a4:a3:47:66:45:b9:77:6f:de:dc:9c:a4:45:b1:
+                    16:2c:1d:cf:0f:fc:72:be:0f:4b:b1:4d:49:2a:13:
+                    5d:a6:2a:b5:a0:b0:f5:fd:fa:c7:e5:b8:43:a7:1f:
+                    0b:35:5c:ab:70:e7:65:5b:f4:fb:01:00:d1:a0:aa:
+                    b5:79:af:6a:ef:34:ac:e7:a3:d3:d2:fe:a9:83:7a:
+                    01:26:00:7d:52:59:d7:c1:04:fb:b7:ec:c7:21:b8:
+                    53:c9:ca:c6:ff:82:5f:d1:c1:ea:e8:77:f1:9c:3f:
+                    0a:6e:97:e0:9e:ac:ef:b2:1e:35:4d:fb:58:52:cd:
+                    92:95:f6:2a:f8:c1:47:14:a7:80:43:9e:73:32:66:
+                    75:2b:26:0b:43:3c:6a:6b:9e:89:4f:f0:5c:a1:ad:
+                    d8:8b
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            X509v3 Subject Key Identifier: 
+                72:CD:C2:04:14:D8:BA:E7:70:8B:B8:18:54:BC:C7:88:BC:F3:CF:F3
+            X509v3 Authority Key Identifier: 
+                keyid:E7:62:2E:14:2A:1B:FC:97:55:51:4C:2A:FA:A9:0D:FE:90:A4:A0:A0
+                DirName:/C=FR/ST=Normandie/L=Saint Etienne du Rouvray/O=Universite de Rouen/OU=M2 GIL 2016-2017/CN=Yoann Fleury/emailAddress=yoann.fleury@etu.univ-rouen.fr
+                serial:80:F1:10:64:08:42:C1:FE
+
+            X509v3 Issuer Alternative Name: 
+                email:yoann.fleury@etu.univ-rouen.fr
+            X509v3 Subject Alternative Name: 
+                email:yoann.fleury@etu.univ-rouen.fr
+            X509v3 Key Usage: critical
+                Digital Signature
+            X509v3 Extended Key Usage: 
+                TLS Web Server Authentication
+    Signature Algorithm: sha256WithRSAEncryption
+         ad:b3:ec:70:37:a4:dd:fd:ab:39:68:0f:f1:17:95:a6:f1:7b:
+         b0:a7:c0:b9:0f:07:ad:16:31:71:53:a5:ec:50:0c:26:23:58:
+         1a:ed:3d:eb:8a:9f:32:f0:29:18:17:69:ec:07:1a:40:0a:0e:
+         54:50:41:4e:a1:69:5c:92:1d:a7:42:67:74:8e:03:f5:b8:9d:
+         15:53:80:7c:2c:48:30:a7:71:ca:87:1a:ee:e7:28:47:f2:94:
+         52:be:8d:8b:b2:65:6c:38:21:5b:b1:10:15:ba:54:54:b6:07:
+         f6:79:12:75:23:ae:77:81:b0:21:f9:1d:16:b8:03:2a:d2:90:
+         fe:52:d6:88:89:cb:bb:d3:00:b0:a3:96:88:aa:12:85:6f:91:
+         ab:a9:b0:1f:b2:58:30:87:74:5a:d2:e0:3a:5e:4d:a5:f9:c3:
+         5d:97:14:e3:90:81:2a:e4:0d:78:a5:b8:01:50:4f:c0:c8:19:
+         7a:d9:4f:4a:40:2e:95:9d:b2:9a:f8:d7:25:30:c2:64:b6:aa:
+         42:29:b6:da:7c:83:67:05:2d:55:1b:21:2d:09:2c:10:c7:41:
+         ac:49:84:62:19:f7:c8:a0:ea:f4:fc:1c:c8:d8:e2:45:50:7f:
+         96:4c:b8:73:72:a4:df:b4:9c:a0:b8:60:38:b1:ff:85:7f:cb:
+         38:5d:79:82
+-----BEGIN CERTIFICATE-----
+MIIFpjCCBI6gAwIBAgIBAjANBgkqhkiG9w0BAQsFADCBwzELMAkGA1UEBhMCRlIx
+EjAQBgNVBAgTCU5vcm1hbmRpZTEhMB8GA1UEBxMYU2FpbnQgRXRpZW5uZSBkdSBS
+b3V2cmF5MRwwGgYDVQQKExNVbml2ZXJzaXRlIGRlIFJvdWVuMRkwFwYDVQQLExBN
+MiBHSUwgMjAxNi0yMDE3MRUwEwYDVQQDEwxZb2FubiBGbGV1cnkxLTArBgkqhkiG
+9w0BCQEWHnlvYW5uLmZsZXVyeUBldHUudW5pdi1yb3Vlbi5mcjAeFw0xNjEyMDcx
+NzExNTdaFw0xNzEyMDcxNzExNTdaMIHAMQswCQYDVQQGEwJGUjESMBAGA1UECBMJ
+Tm9ybWFuZGllMSEwHwYDVQQHExhTYWludCBFdGllbm5lIGR1IFJvdXZyYXkxHDAa
+BgNVBAoTE1VuaXZlcnNpdGUgZGUgUm91ZW4xGTAXBgNVBAsTEE0yIEdJTCAyMDE2
+LTIwMTcxEjAQBgNVBAMTCWxvY2FsaG9zdDEtMCsGCSqGSIb3DQEJARYeeW9hbm4u
+ZmxldXJ5QGV0dS51bml2LXJvdWVuLmZyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+MIIBCgKCAQEA4mRGhPx4LX5HCdQxwH6OtT6jTyXn/IEIf5bLuLKNowoYUhpJYpgU
+KCsT5LE/h1DWU4vXO1ZxYpNtbWf+WAbwxl2UcLcvcyMElFPA68LXZQPFDPEM5DrY
+7HHvihSjTdm+dyHe87ifvGQJpKNHZkW5d2/e3JykRbEWLB3PD/xyvg9LsU1JKhNd
+piq1oLD1/frH5bhDpx8LNVyrcOdlW/T7AQDRoKq1ea9q7zSs56PT0v6pg3oBJgB9
+UlnXwQT7t+zHIbhTycrG/4Jf0cHq6HfxnD8Kbpfgnqzvsh41TftYUs2SlfYq+MFH
+FKeAQ55zMmZ1KyYLQzxqa56JT/Bcoa3YiwIDAQABo4IBpDCCAaAwCQYDVR0TBAIw
+ADAdBgNVHQ4EFgQUcs3CBBTYuudwi7gYVLzHiLzzz/MwgfgGA1UdIwSB8DCB7YAU
+52IuFCob/JdVUUwq+qkN/pCkoKChgcmkgcYwgcMxCzAJBgNVBAYTAkZSMRIwEAYD
+VQQIEwlOb3JtYW5kaWUxITAfBgNVBAcTGFNhaW50IEV0aWVubmUgZHUgUm91dnJh
+eTEcMBoGA1UEChMTVW5pdmVyc2l0ZSBkZSBSb3VlbjEZMBcGA1UECxMQTTIgR0lM
+IDIwMTYtMjAxNzEVMBMGA1UEAxMMWW9hbm4gRmxldXJ5MS0wKwYJKoZIhvcNAQkB
+Fh55b2Fubi5mbGV1cnlAZXR1LnVuaXYtcm91ZW4uZnKCCQCA8RBkCELB/jApBgNV
+HRIEIjAggR55b2Fubi5mbGV1cnlAZXR1LnVuaXYtcm91ZW4uZnIwKQYDVR0RBCIw
+IIEeeW9hbm4uZmxldXJ5QGV0dS51bml2LXJvdWVuLmZyMA4GA1UdDwEB/wQEAwIH
+gDATBgNVHSUEDDAKBggrBgEFBQcDATANBgkqhkiG9w0BAQsFAAOCAQEArbPscDek
+3f2rOWgP8ReVpvF7sKfAuQ8HrRYxcVOl7FAMJiNYGu0964qfMvApGBdp7AcaQAoO
+VFBBTqFpXJIdp0JndI4D9bidFVOAfCxIMKdxyoca7ucoR/KUUr6Ni7JlbDghW7EQ
+FbpUVLYH9nkSdSOud4GwIfkdFrgDKtKQ/lLWiInLu9MAsKOWiKoShW+Rq6mwH7JY
+MId0WtLgOl5NpfnDXZcU45CBKuQNeKW4AVBPwMgZetlPSkAulZ2ymvjXJTDCZLaq
+Qim22nyDZwUtVRshLQksEMdBrEmEYhn3yKDq9PwcyNjiRVB/lky4c3Kk37ScoLhg
+OLH/hX/LOF15gg==
+-----END CERTIFICATE-----

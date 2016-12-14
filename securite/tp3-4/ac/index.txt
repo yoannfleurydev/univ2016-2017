@@ -1,0 +1,2 @@
+V	171207171114Z		01	unknown	/C=FR/ST=Normandie/L=Saint Etienne du Rouvray/O=Universite de Rouen/OU=M2 GIL 2016-2017/CN=Yoann Fleury Client/emailAddress=yoann.fleury@etu.univ-rouen.fr
+V	171207171157Z		02	unknown	/C=FR/ST=Normandie/L=Saint Etienne du Rouvray/O=Universite de Rouen/OU=M2 GIL 2016-2017/CN=localhost/emailAddress=yoann.fleury@etu.univ-rouen.fr

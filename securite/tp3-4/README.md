@@ -5,9 +5,9 @@
 ### Exercice 1 (Cookies)
 
 Le navigateur fait 57 requêtes à [wikipedia](https://fr.wikipedia.org), sur 3
-sous domaines différents. Sur TOR, je n'ai aucun cookie de stockés, en revanche
-sur Firefox j'ai 4 cookies du domaine `fr.wikipedia.org` et 1 du domaine 
-`wikipedia.org` :
+sous domaines différents. Sur TOR, nous n'avons aucun cookie de stocké, en 
+revanche sur Firefox nous avons 4 cookies du domaine `fr.wikipedia.org` et 1 du 
+domaine `wikipedia.org` :
 
 * `fr.wikipedia.org`
     * **CP** : Contient la valeur `H2` mais aucune idée de ce que cela peut être.
@@ -18,7 +18,8 @@ sur Firefox j'ai 4 cookies du domaine `fr.wikipedia.org` et 1 du domaine
 * `wikipedia.org`
     * **GeoIP** : Contient l'endroit depuis lequel on accède au site.
 
-D'autres cookies sont disponibles pour le domaine `wikimedia.org`, 5 en tout.
+D'autres cookies sont disponibles pour le domaine `wikimedia.org`, 5 en tout 
+dont les suivants les plus important :
     * **WMF-Last-Access** : Contient le dernier accès à la WMF (WikiMediaFoundation)
     * **GeoIP** : Contient l'endroit depuis lequel on accède au site.
     * **CP** : Contient la valeur `H2` mais aucune idée de ce que cela peut être.
@@ -26,13 +27,99 @@ D'autres cookies sont disponibles pour le domaine `wikimedia.org`, 5 en tout.
 Description des attributs des cookies :
 
 * **secure** : Définie si le cookie ne doit être envoyé que sur du HTTPs car
-  il contient des données confidentielles. 
+  il contient des données confidentielles.
 * **httpOnly** : Définie si le cookie est accessible à d'autre protocole que 
   HTTP. Par exemple si le cookie est disponible via JavaScript.
 * **expires** : Date de fin de validité du cookie.
 
 Pour complètement charger le site de la [fnac](http://www.fnac.com/), le 
-navigateur effectue 153 requêtes.
+navigateur effectue 153 requêtes sur notre navigateur.
+
+#### Que signifie `Same Origin Policy` pour les cookies ?
+
+Cela permet d'éviter qu'un site tiers utilise ou supprime notre cookie. Par 
+exemple, un cookie mis en place sur un nom de domaine `login.site.com` n'est 
+utilisable que sur le même sous domaine et le même nom de domaine.
+C'est à dire que notre cookie mis en place sur `login.site.com` n'est utilisable
+que sur `login.site.com` et `site.com` mais pas sur `other.site.com` ou 
+`othersite.com`. Idem pour les ports : un cookie déposé sur le port 80 n'est 
+utilisable que sur le port 80.
+
+#### Chercher les requêtes sur le site `eultech.fnac.com`
+
+11 requêtes mènent vers cette adresse, et ces requêtes sont principalement des
+requêtes vers des outils de tracking.
+
+#### Chercher dans le DNS à quoi correspond ce nom de domaine
+
+```
+~$ host eultech.fnac.com
+eultech.fnac.com is an alias for fnac.eulerian.net.
+fnac.eulerian.net is an alias for fc.eulerian.net.
+fc.eulerian.net has address 109.232.194.121
+```
+
+#### A quoi correspondent les requêtes sur `its.tradelab.fr` ?
+
+Ces requêtes correspondent principalement à des requêtes pour récupérer des 
+images (GIF). Probablement pour utiliser la technique de l'image pixel.
+
+#### A quoi correspondent les images sur `engage.commander1.com` ?
+
+Une seule image est chargée. Elle permet à ce site de mettre un cookie dans 
+l'entête de la réponse. Cette technique permet d'invoquer une image de taille
+1px sur 1px qui permet de faire une requête invisible à Madame et Monsieur Michu
+du Larzac, et qui permet de mettre un cookie traçant leur activité.
+
+#### Que se passe-t-il si vous désactivez JavaScript ?
+
+La navigation sur le site est compliquée. Beaucoup d'images n'apparaissent pas 
+car celles-ci sont chargées grâce à des requêtes utilisant `XMLHttpRequest` qui 
+est un object JavaScript.
+
+#### Effectuez une recherche `sclient` sur Google, en remarquant qu'à chacune des lettres que vous tapez, une requête POST est envoyée à Google
+
+A chacune des lettres que nous tapons, c'est une requête GET qui est envoyé, et 
+pas une requête POST.
+
+#### Quel est l'état de vos cookies sur www.google.fr ?
+
+En accédant à `www.google.fr` nous avons 3 cookies qui apparaissent.
+
+* **google.com NID** : 91=zIG8h9nyL7Qy1D4zKOzXngYdHzMAt0TxCNcJeoBz3Ub-PbAfijagoNPJ0JNXIkl67yet4mmN2QG6Qof-tXH59tNgD8BHpr_5LcWhJy1YayuTzP4enMgmRgEkn5xlkSUt
+* **google.fr CONSENT** : WP.25ae9a
+* **google.com NID** : 91=SyasiLK0QKXM7yepp5yyS4BqktpeYcKhWKel8Tawvvwbn5a_xId5WhciqBuaXbJyyxoZNcQb6KlZG2r8xhdXG9_SwcYFVaDqV3wnqDUztQjiqsqKB7TeJN_BTtmAAlCn
+
+#### Quel est la procédure pour accéder au cookies ?
+
+Nous utilisons Firefox et voici la procédure pour accéder aux cookies :
+
+![Info](assets/info.png)
+![Arrow](assets/arrow.png)
+![More info](assets/more_info.png)
+![View](assets/view.png)
+![All](assets/all.png)
+
+#### Quel est l'état de vos cookies sur www.amazon.fr ?
+
+7 cookies apparaissent dès l'accès au site :
+
+* **csm-hit** : s-G10PTD1677K49EJTV6FR|1481719770256
+* **ubid-acbfr** : 253-2138915-4093901
+* **session-id-time** : 2082754801l
+* **session-id** : 254-0114311-6478971
+* **x-wl-uid** : 1bqDVK64CYd0ZxpsDo0n/n+Utn/JfGzIY1zLtPQjYQFiR3aClDO0a0CE22Q2XoDFd3Y5ASKQeU/c=
+* **session-token** : kekXziw6u3X6z92kSFxdC0VuZZe+/EyYiEWzOdaV9owWFTk5MjTsX5pNbLZZ41Q36+m7pUh7914ZvBlIcvwrIQYnK1BPf3sOvudanDtGcKlTdA48OjIRxcsGf6Cm/42Sm+/H5xjMhxNcpUNIbU/mRU8blkNciZYiHYoMzCqzNKc27QrdnIjVAfDyX8QDeMs05CRAveEGxot+qAPe8DVkb+OtpJdrSU6A74r4G2FPumP4ZktUje64yVw
+* **JSESSIONID** : 0E7E15F8413E69C93E526A1F6379ED73
+
+#### Testez le mode navigation privé sur vos navigateurs ? Quel est la différence ?
+
+En mode navigation privée, les cookies et l'historique ne sont conservés, 
+ce qui permet de naviguer tranquillement en évitant le pistage entre différentes
+sessions de navigation.
+
+Bien sur, cela n'augmente en rien la sécurité de l'utilisateur, mais minimise 
+le tracking.
 
 ### Exercice 2 (Requêtes HTTP)
 
@@ -129,17 +216,17 @@ clair.
 
 #### Décrire les champs suivant :
 
-* Referer :  <!-- TODO -->
-* Accept-Language :  <!-- TODO -->
-* User-Agent :  <!-- TODO -->
-* Server :  <!-- TODO -->
-* Set-Cookie : <!-- TODO -->
-* Cookie : <!-- TODO -->
-* Strict-Transport-Security :  <!-- TODO -->
-* Access-Control-Allow-Origin : <!-- TODO -->
-* Access-Control-Expose-Headers : <!-- TODO -->
-* X-Analytics : <!-- TODO -->
-* public-key-pins-report-only : <!-- TODO -->
+* Referer : Le site sur lequel on était avant. 
+* Accept-Language : Les langues accepté par le client.
+* User-Agent : La description du client.
+* Server : Le type de serveur qui fournit la réponse.
+* Set-Cookie : Permet de mettre un cookies dans le navigateur
+* Cookie : Permet d'envoyer les cookies au serveur.
+* Strict-Transport-Security : Permet de dire au client qu'on force le HTTPS
+* Access-Control-Allow-Origin : Permet d'éviter le Cross Origin Resource Sharing
+* Access-Control-Expose-Headers : Permet d'indiquer que les headers sont sûr à exposer.
+* X-Analytics : Permet un certain nombre de collecte de données.
+* public-key-pins-report-only : Permet d'ajouter une sécurité supplémentaire pour ceux qui utilisent des certificats frauduleux.
 
 ### Exercice 3 (Vérification côté client)
 
@@ -162,3 +249,30 @@ Secure.
 
 Un certificat d'**authentification** émis pas une autorité tierce est mis en 
 place. Cela garantit théoriquement la confidentialité des données échangées.
+
+### Exercice 5 (Certificat serveur)
+
+1. Rappeler le contenu d'un certificat numérique : à quoi correspondent les 
+principales données en clair ? Que contient le dernier champ (Après "Algorithme
+de signature des certificats") ?
+
+<!-- TODO -->
+
+### Exercice 6 (genpkey)
+
+#### Qu'est ce qu'un certificat racine ?
+
+<!-- TODO -->
+
+#### Importez le certificat de votre autorité dans vos navigateurs en lui accordant votre confiance.
+#### Décrivez la procédure d'importation propre à votre poste.
+
+```
+Settings -> HTTPS/SSL -> Manage certificates -> Authorities -> Import -> Trust All
+```
+
+Il suffit d'importer et de cocher les cases pour 
+
+#### Détaillez les éléments présents dans le certificat
+
+<!-- TODO -->
