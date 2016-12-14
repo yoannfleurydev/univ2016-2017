@@ -8,56 +8,35 @@ import fiche5.util.ViewConfigurator;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-public privileged aspect MVCFramework {
+public aspect MVCFramework {
+
     declare parents : @Observable * extends Subject;
-    declare error : execution(@ChangeState * *(..)) && !within(@Observable *)
+
+    declare error : execution(@ChangeState * *.*(..)) && !within(@Observable *)
             : "ChangeState should be in @Observable annotated class !";
 
-    pointcut mvcConstructorExecution() : execution(@MVC *.new(..));
+    pointcut afterChange(Subject s) : execution(@ChangeState * *.*(..)) && this(s);
 
-    pointcut afterChange() : call(@ChangeState * *(..));
+    pointcut mvcConstructorExecution(Object s) : execution((@MVC *).new(..)) && this(s);
 
-    after(Subject model) : afterChange() && target(model) {
-        model.notifyObservers();
+    after(Subject s) : afterChange(s) {
+        s.notifyObservers();
     }
 
-    after(Subject s) : mvcConstructorExecution() && this(s) {
+    after(Object s) : mvcConstructorExecution(s) {
         Method[] methods = s.getClass().getMethods();
 
-        // ModelCreator
-        for (int i = 0; i < methods.length; i++) {
-            if (methods[i].isAnnotationPresent(ModelCreator.class)) {
-                try {
-                    methods[i].invoke(s);
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                } catch (InvocationTargetException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+        run(methods, s, ModelCreator.class);
+        run(methods, s, ControllerCreator.class);
+        run(methods, s, ViewConfigurator.class);
+    }
 
-        // ControllerCreator
+    private void run(Method[] methods, Object o, Class c) {
         for (int i = 0; i < methods.length; i++) {
-            if (methods[i].isAnnotationPresent(ControllerCreator.class)) {
+            if (methods[i].isAnnotationPresent(c)) {
                 try {
-                    methods[i].invoke(s);
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                } catch (InvocationTargetException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        // ViewConfigurator
-        for (int i = 0; i < methods.length; i++) {
-            if (methods[i].isAnnotationPresent(ViewConfigurator.class)) {
-                try {
-                    methods[i].invoke(s);
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                } catch (InvocationTargetException e) {
+                    methods[i].invoke(o);
+                } catch (IllegalAccessException | InvocationTargetException e) {
                     e.printStackTrace();
                 }
             }

@@ -1,580 +1,388 @@
 <?xml version="1.0"?>
-<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+<rdf:RDF xmlns="http://www.univrouen.fr/ontologies/restaurant#"
      xml:base="http://www.univrouen.fr/ontologies/restaurant"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     ontologyIRI="http://www.univrouen.fr/ontologies/restaurant"
-     versionIRI="http://www.univrouen.fr/ontologies/restaurant/1.0">
-    <Prefix name="" IRI="http://www.univrouen.fr/ontologies/restaurant#"/>
-    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
-    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
-    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
-    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
-    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
-    <Annotation>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Restauration ontology</Literal>
-    </Annotation>
-    <Annotation>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Ontologies de la restauration</Literal>
-    </Annotation>
-    <Annotation>
-        <AnnotationProperty abbreviatedIRI="rdfs:isDefinedBy"/>
-        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Renan Decamps - Yoann Fleury</Literal>
-    </Annotation>
-    <Declaration>
-        <Class IRI="#Café_gourmand_de_notre_pâtissier"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#hasCheese"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#meat"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#starter"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Menu"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#plat"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#hasIngredient"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#quantity"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#cheese"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Pommes_vapeur"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Tarte_au_citron_revisitée"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Entrecôte_(Race_Normande)_Sauce_Neufchâtel_ou_Poivre"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Mille-feuille_aux_trois_chocolats"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Paris-Brest"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#fish"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Crème_brûlée_classique_et_son_sablé"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Restaurant"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#price"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Légumes_de_saison"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#dessert"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Pommes_de_terre"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#name"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Assiette_de_fromages_du_terroir_Normand"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Tarte_fine_aux_pommes,_caramel_au_beurre_fermier"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Huitres_Normandes_n°3"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#accompagnement"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#weight"/>
-    </Declaration>
-    <SubClassOf>
-        <Class IRI="#Assiette_de_fromages_du_terroir_Normand"/>
-        <Class IRI="#cheese"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Café_gourmand_de_notre_pâtissier"/>
-        <Class IRI="#dessert"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Crème_brûlée_classique_et_son_sablé"/>
-        <Class IRI="#dessert"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Menu"/>
-        <Class IRI="#Restaurant"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Mille-feuille_aux_trois_chocolats"/>
-        <Class IRI="#dessert"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Paris-Brest"/>
-        <Class IRI="#dessert"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Tarte_au_citron_revisitée"/>
-        <Class IRI="#dessert"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#accompagnement"/>
-        <Class IRI="#Restaurant"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#cheese"/>
-        <Class IRI="#Menu"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#dessert"/>
-        <Class IRI="#Menu"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#fish"/>
-        <Class IRI="#Menu"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#meat"/>
-        <Class IRI="#Menu"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#plat"/>
-        <Class IRI="#Menu"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#starter"/>
-        <Class IRI="#Menu"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Entrecôte_(Race_Normande)_Sauce_Neufchâtel_ou_Poivre"/>
-        <Class IRI="#meat"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Huitres_Normandes_n°3"/>
-        <Class IRI="#starter"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Tarte_fine_aux_pommes,_caramel_au_beurre_fermier"/>
-        <Class IRI="#dessert"/>
-    </SubClassOf>
-    <DisjointClasses>
-        <Class IRI="#Café_gourmand_de_notre_pâtissier"/>
-        <Class IRI="#Crème_brûlée_classique_et_son_sablé"/>
-    </DisjointClasses>
-    <DisjointClasses>
-        <Class IRI="#Café_gourmand_de_notre_pâtissier"/>
-        <Class IRI="#Mille-feuille_aux_trois_chocolats"/>
-    </DisjointClasses>
-    <DisjointClasses>
-        <Class IRI="#Café_gourmand_de_notre_pâtissier"/>
-        <Class IRI="#Paris-Brest"/>
-    </DisjointClasses>
-    <DisjointClasses>
-        <Class IRI="#Café_gourmand_de_notre_pâtissier"/>
-        <Class IRI="#Tarte_au_citron_revisitée"/>
-    </DisjointClasses>
-    <DisjointClasses>
-        <Class IRI="#Café_gourmand_de_notre_pâtissier"/>
-        <Class IRI="#Tarte_fine_aux_pommes,_caramel_au_beurre_fermier"/>
-    </DisjointClasses>
-    <DisjointClasses>
-        <Class IRI="#Crème_brûlée_classique_et_son_sablé"/>
-        <Class IRI="#Mille-feuille_aux_trois_chocolats"/>
-    </DisjointClasses>
-    <DisjointClasses>
-        <Class IRI="#Crème_brûlée_classique_et_son_sablé"/>
-        <Class IRI="#Paris-Brest"/>
-    </DisjointClasses>
-    <DisjointClasses>
-        <Class IRI="#Crème_brûlée_classique_et_son_sablé"/>
-        <Class IRI="#Tarte_au_citron_revisitée"/>
-    </DisjointClasses>
-    <DisjointClasses>
-        <Class IRI="#Crème_brûlée_classique_et_son_sablé"/>
-        <Class IRI="#Tarte_fine_aux_pommes,_caramel_au_beurre_fermier"/>
-    </DisjointClasses>
-    <DisjointClasses>
-        <Class IRI="#Mille-feuille_aux_trois_chocolats"/>
-        <Class IRI="#Paris-Brest"/>
-    </DisjointClasses>
-    <DisjointClasses>
-        <Class IRI="#Mille-feuille_aux_trois_chocolats"/>
-        <Class IRI="#Tarte_au_citron_revisitée"/>
-    </DisjointClasses>
-    <DisjointClasses>
-        <Class IRI="#Mille-feuille_aux_trois_chocolats"/>
-        <Class IRI="#Tarte_fine_aux_pommes,_caramel_au_beurre_fermier"/>
-    </DisjointClasses>
-    <DisjointClasses>
-        <Class IRI="#Paris-Brest"/>
-        <Class IRI="#Tarte_au_citron_revisitée"/>
-    </DisjointClasses>
-    <DisjointClasses>
-        <Class IRI="#Paris-Brest"/>
-        <Class IRI="#Tarte_fine_aux_pommes,_caramel_au_beurre_fermier"/>
-    </DisjointClasses>
-    <DisjointClasses>
-        <Class IRI="#Tarte_au_citron_revisitée"/>
-        <Class IRI="#Tarte_fine_aux_pommes,_caramel_au_beurre_fermier"/>
-    </DisjointClasses>
-    <DisjointClasses>
-        <Class IRI="#dessert"/>
-        <Class IRI="#plat"/>
-    </DisjointClasses>
-    <DisjointClasses>
-        <Class IRI="#plat"/>
-        <Class IRI="#starter"/>
-    </DisjointClasses>
-    <ClassAssertion>
-        <Class IRI="#accompagnement"/>
-        <NamedIndividual IRI="#Légumes_de_saison"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#accompagnement"/>
-        <NamedIndividual IRI="#Pommes_de_terre"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#accompagnement"/>
-        <NamedIndividual IRI="#Pommes_vapeur"/>
-    </ClassAssertion>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#hasCheese"/>
-        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
-    </SubObjectPropertyOf>
-    <FunctionalObjectProperty>
-        <ObjectProperty IRI="#hasCheese"/>
-    </FunctionalObjectProperty>
-    <FunctionalObjectProperty>
-        <ObjectProperty IRI="#hasIngredient"/>
-    </FunctionalObjectProperty>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasCheese"/>
-        <Class IRI="#Assiette_de_fromages_du_terroir_Normand"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasCheese"/>
-        <Class IRI="#Entrecôte_(Race_Normande)_Sauce_Neufchâtel_ou_Poivre"/>
-    </ObjectPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#name"/>
-        <Class IRI="#Café_gourmand_de_notre_pâtissier"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#name"/>
-        <Class IRI="#Crème_brûlée_classique_et_son_sablé"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#name"/>
-        <Class IRI="#Mille-feuille_aux_trois_chocolats"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#name"/>
-        <Class IRI="#Paris-Brest"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#name"/>
-        <Class IRI="#Tarte_au_citron_revisitée"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#name"/>
-        <Class IRI="#Tarte_fine_aux_pommes,_caramel_au_beurre_fermier"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#name"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
-            <Class IRI="#cheese"/>
-        </ObjectSomeValuesFrom>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#name"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
-            <Class IRI="#dessert"/>
-        </ObjectSomeValuesFrom>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#name"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
-            <Class IRI="#fish"/>
-        </ObjectSomeValuesFrom>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#name"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
-            <Class IRI="#meat"/>
-        </ObjectSomeValuesFrom>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#name"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
-            <Class IRI="#starter"/>
-        </ObjectSomeValuesFrom>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#price"/>
-        <Class IRI="#Café_gourmand_de_notre_pâtissier"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#price"/>
-        <Class IRI="#Crème_brûlée_classique_et_son_sablé"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#price"/>
-        <Class IRI="#Mille-feuille_aux_trois_chocolats"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#price"/>
-        <Class IRI="#Paris-Brest"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#price"/>
-        <Class IRI="#Tarte_au_citron_revisitée"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#price"/>
-        <Class IRI="#plat"/>
-    </DataPropertyDomain>
-    <DataPropertyDomain>
-        <DataProperty IRI="#price"/>
-        <Class IRI="#Tarte_fine_aux_pommes,_caramel_au_beurre_fermier"/>
-    </DataPropertyDomain>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Assiette_de_fromages_du_terroir_Normand</IRI>
-        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Assiette de fromages du terroir Normand</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Assiette_de_fromages_du_terroir_Normand</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Cheese plate from the Normandy region</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Café_gourmand_de_notre_pâtissier</IRI>
-        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Café gourmand de notre pâtissier</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Café_gourmand_de_notre_pâtissier</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Coffee with an assortment of pastries</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Crème_brûlée_classique_et_son_sablé</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Classic &quot;crème brûlée&quot; and its shortbread cookie</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Crème_brûlée_classique_et_son_sablé</IRI>
-        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Crème brûlée classique et son sablé</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Légumes_de_saison</IRI>
-        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Légumes de saison</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Menu</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">menu</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Menu</IRI>
-        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">menu</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Menu</IRI>
-        <Literal xml:lang="es" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">menú</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Mille-feuille_aux_trois_chocolats</IRI>
-        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Mille-feuille aux trois chocolats</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Mille-feuille_aux_trois_chocolats</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Three chocolates mille-feuille</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Paris-Brest</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">&quot;Paris-Brest&quot; cake</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Paris-Brest</IRI>
-        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Paris-Brest</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Pommes_de_terre</IRI>
-        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Pommes de terre</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Pommes_vapeur</IRI>
-        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Pommes vapeur</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Restaurant</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A restaurant is a place to eat.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#Restaurant</IRI>
-        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Un restaurant est un endroit où manger.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Restaurant</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">restaurant</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Restaurant</IRI>
-        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">restaurant</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Restaurant</IRI>
-        <Literal xml:lang="es" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">restaurante</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Tarte_au_citron_revisitée</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Lemon tart &quot;our way&quot;</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Tarte_au_citron_revisitée</IRI>
-        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Tarte au citron revisitée</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#accompagnement</IRI>
-        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">accompagnement</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#accompagnement</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">side order</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#cheese</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">cheese</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#cheese</IRI>
-        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">fromage</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#dessert</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">dessert</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#dessert</IRI>
-        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">dessert</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#fish</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">fish</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#fish</IRI>
-        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">poisson</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#meat</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">meat</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#meat</IRI>
-        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">viande</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#plat</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">meal</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#plat</IRI>
-        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">plat</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#starter</IRI>
-        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">entrée</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#starter</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">starter</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Entrecôte_(Race_Normande)_Sauce_Neufchâtel_ou_Poivre</IRI>
-        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Entrecôte (Race Normande) Sauce Neufchâtel ou Poivre</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Entrecôte_(Race_Normande)_Sauce_Neufchâtel_ou_Poivre</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Rib eye steak &quot;Neufchâtel&quot; sauce (Normandy breed)</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Huitres_Normandes_n°3</IRI>
-        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Huitres Normandes N°3</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Huitres_Normandes_n°3</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Normandy Oysters</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Tarte_fine_aux_pommes,_caramel_au_beurre_fermier</IRI>
-        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Tarte fine aux pommes, caramel au beurre fermier</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#Tarte_fine_aux_pommes,_caramel_au_beurre_fermier</IRI>
-        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Thin apple tart with caramel</Literal>
-    </AnnotationAssertion>
-</Ontology>
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.univrouen.fr/ontologies/restaurant">
+        <owl:versionIRI rdf:resource="http://www.univrouen.fr/ontologies/restaurant/1.0"/>
+        <rdfs:label xml:lang="en">Restauration ontology</rdfs:label>
+        <rdfs:label xml:lang="fr">Ontologies de la restauration</rdfs:label>
+        <rdfs:isDefinedBy xml:lang="fr">Renan Decamps - Yoann Fleury</rdfs:isDefinedBy>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.univrouen.fr/ontologies/restaurant#hasCheese -->
+
+    <owl:ObjectProperty rdf:about="http://www.univrouen.fr/ontologies/restaurant#hasCheese">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.univrouen.fr/ontologies/restaurant#Assiette_de_fromages_du_terroir_Normand"/>
+        <rdfs:domain rdf:resource="http://www.univrouen.fr/ontologies/restaurant#entrecote_race_normande_sauce_neufchatel_ou_poivre"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.univrouen.fr/ontologies/restaurant#hasIngredient -->
+
+    <owl:ObjectProperty rdf:about="http://www.univrouen.fr/ontologies/restaurant#hasIngredient">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.univrouen.fr/ontologies/restaurant#name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.univrouen.fr/ontologies/restaurant#name">
+        <rdfs:domain rdf:resource="http://www.univrouen.fr/ontologies/restaurant#cafe_gourmand_de_notre_patissier"/>
+        <rdfs:domain rdf:resource="http://www.univrouen.fr/ontologies/restaurant#creme_brulee_classique_et_son_sable"/>
+        <rdfs:domain rdf:resource="http://www.univrouen.fr/ontologies/restaurant#mille_feuille_aux_trois_chocolats"/>
+        <rdfs:domain rdf:resource="http://www.univrouen.fr/ontologies/restaurant#paris_brest"/>
+        <rdfs:domain rdf:resource="http://www.univrouen.fr/ontologies/restaurant#tarte_au_citron_revisitee"/>
+        <rdfs:domain rdf:resource="http://www.univrouen.fr/ontologies/restaurant#tarte_fine_aux_pommes_caramel_au_beurre_fermier"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+                <owl:someValuesFrom rdf:resource="http://www.univrouen.fr/ontologies/restaurant#cheese"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+                <owl:someValuesFrom rdf:resource="http://www.univrouen.fr/ontologies/restaurant#dessert"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+                <owl:someValuesFrom rdf:resource="http://www.univrouen.fr/ontologies/restaurant#fish"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+                <owl:someValuesFrom rdf:resource="http://www.univrouen.fr/ontologies/restaurant#meat"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+                <owl:someValuesFrom rdf:resource="http://www.univrouen.fr/ontologies/restaurant#starter"/>
+            </owl:Restriction>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.univrouen.fr/ontologies/restaurant#price -->
+
+    <owl:DatatypeProperty rdf:about="http://www.univrouen.fr/ontologies/restaurant#price">
+        <rdfs:domain rdf:resource="http://www.univrouen.fr/ontologies/restaurant#cafe_gourmand_de_notre_patissier"/>
+        <rdfs:domain rdf:resource="http://www.univrouen.fr/ontologies/restaurant#creme_brulee_classique_et_son_sable"/>
+        <rdfs:domain rdf:resource="http://www.univrouen.fr/ontologies/restaurant#mille_feuille_aux_trois_chocolats"/>
+        <rdfs:domain rdf:resource="http://www.univrouen.fr/ontologies/restaurant#noix_de_saint_jacques_fondue_de_poireaux_et_bisque_de_langoustines"/>
+        <rdfs:domain rdf:resource="http://www.univrouen.fr/ontologies/restaurant#paris_brest"/>
+        <rdfs:domain rdf:resource="http://www.univrouen.fr/ontologies/restaurant#plat"/>
+        <rdfs:domain rdf:resource="http://www.univrouen.fr/ontologies/restaurant#tarte_au_citron_revisitee"/>
+        <rdfs:domain rdf:resource="http://www.univrouen.fr/ontologies/restaurant#tarte_fine_aux_pommes_caramel_au_beurre_fermier"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.univrouen.fr/ontologies/restaurant#quantity -->
+
+    <owl:DatatypeProperty rdf:about="http://www.univrouen.fr/ontologies/restaurant#quantity"/>
+    
+
+
+    <!-- http://www.univrouen.fr/ontologies/restaurant#weight -->
+
+    <owl:DatatypeProperty rdf:about="http://www.univrouen.fr/ontologies/restaurant#weight"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.univrouen.fr/ontologies/restaurant#Assiette_de_fromages_du_terroir_Normand -->
+
+    <owl:Class rdf:about="http://www.univrouen.fr/ontologies/restaurant#Assiette_de_fromages_du_terroir_Normand">
+        <rdfs:subClassOf rdf:resource="http://www.univrouen.fr/ontologies/restaurant#cheese"/>
+        <rdfs:label xml:lang="fr">Assiette de fromages du terroir Normand</rdfs:label>
+        <rdfs:label xml:lang="en">Cheese plate from the Normandy region</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.univrouen.fr/ontologies/restaurant#Menu -->
+
+    <owl:Class rdf:about="http://www.univrouen.fr/ontologies/restaurant#Menu">
+        <rdfs:subClassOf rdf:resource="http://www.univrouen.fr/ontologies/restaurant#Restaurant"/>
+        <rdfs:label xml:lang="en">menu</rdfs:label>
+        <rdfs:label xml:lang="fr">menu</rdfs:label>
+        <rdfs:label xml:lang="es">menú</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.univrouen.fr/ontologies/restaurant#Restaurant -->
+
+    <owl:Class rdf:about="http://www.univrouen.fr/ontologies/restaurant#Restaurant">
+        <rdfs:comment xml:lang="en">A restaurant is a place to eat.</rdfs:comment>
+        <rdfs:comment xml:lang="fr">Un restaurant est un endroit où manger.</rdfs:comment>
+        <rdfs:label xml:lang="en">restaurant</rdfs:label>
+        <rdfs:label xml:lang="fr">restaurant</rdfs:label>
+        <rdfs:label xml:lang="es">restaurante</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.univrouen.fr/ontologies/restaurant#accompagnement -->
+
+    <owl:Class rdf:about="http://www.univrouen.fr/ontologies/restaurant#accompagnement">
+        <rdfs:subClassOf rdf:resource="http://www.univrouen.fr/ontologies/restaurant#Restaurant"/>
+        <rdfs:label xml:lang="fr">accompagnement</rdfs:label>
+        <rdfs:label xml:lang="en">side order</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.univrouen.fr/ontologies/restaurant#cafe_gourmand_de_notre_patissier -->
+
+    <owl:Class rdf:about="http://www.univrouen.fr/ontologies/restaurant#cafe_gourmand_de_notre_patissier">
+        <rdfs:subClassOf rdf:resource="http://www.univrouen.fr/ontologies/restaurant#dessert"/>
+        <owl:disjointWith rdf:resource="http://www.univrouen.fr/ontologies/restaurant#creme_brulee_classique_et_son_sable"/>
+        <owl:disjointWith rdf:resource="http://www.univrouen.fr/ontologies/restaurant#mille_feuille_aux_trois_chocolats"/>
+        <owl:disjointWith rdf:resource="http://www.univrouen.fr/ontologies/restaurant#paris_brest"/>
+        <owl:disjointWith rdf:resource="http://www.univrouen.fr/ontologies/restaurant#tarte_au_citron_revisitee"/>
+        <owl:disjointWith rdf:resource="http://www.univrouen.fr/ontologies/restaurant#tarte_fine_aux_pommes_caramel_au_beurre_fermier"/>
+        <rdfs:label xml:lang="fr">Café gourmand de notre pâtissier</rdfs:label>
+        <rdfs:label xml:lang="en">Coffee with an assortment of pastries</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.univrouen.fr/ontologies/restaurant#cheese -->
+
+    <owl:Class rdf:about="http://www.univrouen.fr/ontologies/restaurant#cheese">
+        <rdfs:subClassOf rdf:resource="http://www.univrouen.fr/ontologies/restaurant#Menu"/>
+        <rdfs:label xml:lang="en">cheese</rdfs:label>
+        <rdfs:label xml:lang="fr">fromage</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.univrouen.fr/ontologies/restaurant#creme_brulee_classique_et_son_sable -->
+
+    <owl:Class rdf:about="http://www.univrouen.fr/ontologies/restaurant#creme_brulee_classique_et_son_sable">
+        <rdfs:subClassOf rdf:resource="http://www.univrouen.fr/ontologies/restaurant#dessert"/>
+        <owl:disjointWith rdf:resource="http://www.univrouen.fr/ontologies/restaurant#mille_feuille_aux_trois_chocolats"/>
+        <owl:disjointWith rdf:resource="http://www.univrouen.fr/ontologies/restaurant#paris_brest"/>
+        <owl:disjointWith rdf:resource="http://www.univrouen.fr/ontologies/restaurant#tarte_au_citron_revisitee"/>
+        <owl:disjointWith rdf:resource="http://www.univrouen.fr/ontologies/restaurant#tarte_fine_aux_pommes_caramel_au_beurre_fermier"/>
+        <rdfs:label xml:lang="en">Classic &quot;crème brûlée&quot; and its shortbread cookie</rdfs:label>
+        <rdfs:label xml:lang="fr">Crème brûlée classique et son sablé</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.univrouen.fr/ontologies/restaurant#dessert -->
+
+    <owl:Class rdf:about="http://www.univrouen.fr/ontologies/restaurant#dessert">
+        <rdfs:subClassOf rdf:resource="http://www.univrouen.fr/ontologies/restaurant#Menu"/>
+        <owl:disjointWith rdf:resource="http://www.univrouen.fr/ontologies/restaurant#plat"/>
+        <rdfs:label xml:lang="en">dessert</rdfs:label>
+        <rdfs:label xml:lang="fr">dessert</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.univrouen.fr/ontologies/restaurant#entrecote_race_normande_sauce_neufchatel_ou_poivre -->
+
+    <owl:Class rdf:about="http://www.univrouen.fr/ontologies/restaurant#entrecote_race_normande_sauce_neufchatel_ou_poivre">
+        <rdfs:subClassOf rdf:resource="http://www.univrouen.fr/ontologies/restaurant#meat"/>
+        <rdfs:label xml:lang="fr">Entrecôte (Race Normande) Sauce Neufchâtel ou Poivre</rdfs:label>
+        <rdfs:label xml:lang="en">Rib eye steak &quot;Neufchâtel&quot; sauce (Normandy breed)</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.univrouen.fr/ontologies/restaurant#fish -->
+
+    <owl:Class rdf:about="http://www.univrouen.fr/ontologies/restaurant#fish">
+        <rdfs:subClassOf rdf:resource="http://www.univrouen.fr/ontologies/restaurant#Menu"/>
+        <rdfs:label xml:lang="en">fish</rdfs:label>
+        <rdfs:label xml:lang="fr">poisson</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.univrouen.fr/ontologies/restaurant#huitres_normandes_n3 -->
+
+    <owl:Class rdf:about="http://www.univrouen.fr/ontologies/restaurant#huitres_normandes_n3">
+        <rdfs:subClassOf rdf:resource="http://www.univrouen.fr/ontologies/restaurant#starter"/>
+        <rdfs:label xml:lang="fr">Huitres Normandes N°3</rdfs:label>
+        <rdfs:label xml:lang="en">Normandy Oysters</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.univrouen.fr/ontologies/restaurant#meat -->
+
+    <owl:Class rdf:about="http://www.univrouen.fr/ontologies/restaurant#meat">
+        <rdfs:subClassOf rdf:resource="http://www.univrouen.fr/ontologies/restaurant#Menu"/>
+        <rdfs:label xml:lang="en">meat</rdfs:label>
+        <rdfs:label xml:lang="fr">viande</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.univrouen.fr/ontologies/restaurant#mille_feuille_aux_trois_chocolats -->
+
+    <owl:Class rdf:about="http://www.univrouen.fr/ontologies/restaurant#mille_feuille_aux_trois_chocolats">
+        <rdfs:subClassOf rdf:resource="http://www.univrouen.fr/ontologies/restaurant#dessert"/>
+        <owl:disjointWith rdf:resource="http://www.univrouen.fr/ontologies/restaurant#paris_brest"/>
+        <owl:disjointWith rdf:resource="http://www.univrouen.fr/ontologies/restaurant#tarte_au_citron_revisitee"/>
+        <owl:disjointWith rdf:resource="http://www.univrouen.fr/ontologies/restaurant#tarte_fine_aux_pommes_caramel_au_beurre_fermier"/>
+        <rdfs:label xml:lang="fr">Mille-feuille aux trois chocolats</rdfs:label>
+        <rdfs:label xml:lang="en">Three chocolates mille-feuille</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.univrouen.fr/ontologies/restaurant#noix_de_saint_jacques_fondue_de_poireaux_et_bisque_de_langoustines -->
+
+    <owl:Class rdf:about="http://www.univrouen.fr/ontologies/restaurant#noix_de_saint_jacques_fondue_de_poireaux_et_bisque_de_langoustines">
+        <rdfs:subClassOf rdf:resource="http://www.univrouen.fr/ontologies/restaurant#fish"/>
+        <rdfs:label xml:lang="fr">Noix de Saint Jacques, fondue de poireaux et bisque de langoustines</rdfs:label>
+        <rdfs:label xml:lang="en">Roasted scallops, creamy leeks with scampi’s bisque</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.univrouen.fr/ontologies/restaurant#paris_brest -->
+
+    <owl:Class rdf:about="http://www.univrouen.fr/ontologies/restaurant#paris_brest">
+        <rdfs:subClassOf rdf:resource="http://www.univrouen.fr/ontologies/restaurant#dessert"/>
+        <owl:disjointWith rdf:resource="http://www.univrouen.fr/ontologies/restaurant#tarte_au_citron_revisitee"/>
+        <owl:disjointWith rdf:resource="http://www.univrouen.fr/ontologies/restaurant#tarte_fine_aux_pommes_caramel_au_beurre_fermier"/>
+        <rdfs:label xml:lang="en">&quot;Paris-Brest&quot; cake</rdfs:label>
+        <rdfs:label xml:lang="fr">Paris-Brest</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.univrouen.fr/ontologies/restaurant#plat -->
+
+    <owl:Class rdf:about="http://www.univrouen.fr/ontologies/restaurant#plat">
+        <rdfs:subClassOf rdf:resource="http://www.univrouen.fr/ontologies/restaurant#Menu"/>
+        <owl:disjointWith rdf:resource="http://www.univrouen.fr/ontologies/restaurant#starter"/>
+        <rdfs:label xml:lang="en">meal</rdfs:label>
+        <rdfs:label xml:lang="fr">plat</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.univrouen.fr/ontologies/restaurant#starter -->
+
+    <owl:Class rdf:about="http://www.univrouen.fr/ontologies/restaurant#starter">
+        <rdfs:subClassOf rdf:resource="http://www.univrouen.fr/ontologies/restaurant#Menu"/>
+        <rdfs:label xml:lang="fr">entrée</rdfs:label>
+        <rdfs:label xml:lang="en">starter</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.univrouen.fr/ontologies/restaurant#tarte_au_citron_revisitee -->
+
+    <owl:Class rdf:about="http://www.univrouen.fr/ontologies/restaurant#tarte_au_citron_revisitee">
+        <rdfs:subClassOf rdf:resource="http://www.univrouen.fr/ontologies/restaurant#dessert"/>
+        <owl:disjointWith rdf:resource="http://www.univrouen.fr/ontologies/restaurant#tarte_fine_aux_pommes_caramel_au_beurre_fermier"/>
+        <rdfs:label xml:lang="en">Lemon tart &quot;our way&quot;</rdfs:label>
+        <rdfs:label xml:lang="fr">Tarte au citron revisitée</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.univrouen.fr/ontologies/restaurant#tarte_fine_aux_pommes_caramel_au_beurre_fermier -->
+
+    <owl:Class rdf:about="http://www.univrouen.fr/ontologies/restaurant#tarte_fine_aux_pommes_caramel_au_beurre_fermier">
+        <rdfs:subClassOf rdf:resource="http://www.univrouen.fr/ontologies/restaurant#dessert"/>
+        <rdfs:label xml:lang="fr">Tarte fine aux pommes, caramel au beurre fermier</rdfs:label>
+        <rdfs:label xml:lang="en">Thin apple tart with caramel</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.univrouen.fr/ontologies/restaurant#Légumes_de_saison -->
+
+    <owl:NamedIndividual rdf:about="http://www.univrouen.fr/ontologies/restaurant#Légumes_de_saison">
+        <rdf:type rdf:resource="http://www.univrouen.fr/ontologies/restaurant#accompagnement"/>
+        <rdfs:comment xml:lang="fr">Légumes de saison</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.univrouen.fr/ontologies/restaurant#Pommes_de_terre -->
+
+    <owl:NamedIndividual rdf:about="http://www.univrouen.fr/ontologies/restaurant#Pommes_de_terre">
+        <rdf:type rdf:resource="http://www.univrouen.fr/ontologies/restaurant#accompagnement"/>
+        <rdfs:label xml:lang="fr">Pommes de terre</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.univrouen.fr/ontologies/restaurant#Pommes_vapeur -->
+
+    <owl:NamedIndividual rdf:about="http://www.univrouen.fr/ontologies/restaurant#Pommes_vapeur">
+        <rdf:type rdf:resource="http://www.univrouen.fr/ontologies/restaurant#accompagnement"/>
+        <rdfs:label xml:lang="fr">Pommes vapeur</rdfs:label>
+    </owl:NamedIndividual>
+</rdf:RDF>
 
 
 
