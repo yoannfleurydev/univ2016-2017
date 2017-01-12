@@ -132,12 +132,12 @@ private:
     string login;
 
 public:
-    Anonymous(const string login, size_t s = 1);
+    Anonymous(const string first, const string last, const string login, size_t s = 1);
 };
 
 
 template<class T>
-Anonymous<T>::Anonymous(const string login, size_t s) : login(login), Memextend<T>(s) {
+Anonymous<T>::Anonymous(const string first, const string last, const string login, size_t s) : login(login), Memextend<T>(first, last, s) {
 
 }
 

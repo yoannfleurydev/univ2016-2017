@@ -1,11 +1,50 @@
 /*Main2.cpp*/
 /*
 Trace
-delete dans catch:
-012
---------------------------
+Un utilisateur anonyme se connecte
+Le login : ZcT5Zbw2LN2dCV$m!S2&N, lui est assigné
+création de l'utilisateur
 Supp dyn pmem
-delete dans catch:
+delete dans catch (anonymous):
+012
+Supp dyn pmem
+Supp dyn pmem
+Un utilisateur anonyme se connecte
+Le login : Kd92W#$n5BYiypTZmh2Lj, lui est assigné
+création de l'utilisateur
+Supp dyn pmem
+delete dans catch (anonymous):
+012
+Supp dyn pmem
+Supp dyn pmem
+Un utilisateur anonyme se connecte
+Le login : rfQ*eavg3IDgSFOqSNvl4, lui est assigné
+création de l'utilisateur
+Supp dyn pmem
+delete dans catch (anonymous):
+012
+Supp dyn pmem
+Supp dyn pmem
+Un utilisateur anonyme se connecte
+Le login : dw5IV37kb2bGT4%F07UIK, lui est assigné
+création de l'utilisateur
+Supp dyn pmem
+delete dans catch (anonymous):
+012
+Supp dyn pmem
+Supp dyn pmem
+Un utilisateur anonyme se connecte
+Le login : A4thuL#qIKfEc64fH0GKn, lui est assigné
+création de l'utilisateur
+Supp dyn pmem
+delete dans catch (anonymous):
+012
+Supp dyn pmem
+Supp dyn pmem
+Un utilisateur connu du système se connecte
+création de l'utilisateur avec pour login : Toto et pour password Tata
+Supp dyn pmem
+delete dans catch (anonymous):
 012
 Supp dyn pmem
 Supp dyn pmem
@@ -47,7 +86,7 @@ int main(){
 
         try{
             cout << "création de l'utilisateur" << endl;
-            Anonymous<int> anonymous(login, 4);
+            Anonymous<int> anonymous("toto", "tata", login, 4);
             int *p=anonymous;
             for(int i=0; i<3; i++, p++) *p=i;
             throw(anonymous);
@@ -64,6 +103,8 @@ int main(){
     try{
         cout << "création de l'utilisateur avec pour login : Toto et pour password Tata" << endl;
         User<int> user("Toto" , "Tata", 8);
+        user.setLogin("totodu76");
+        user.setPassword("taotao");
         int *p=user;
         for(int i=0; i<3; i++, p++) *p=i;
         throw(user);
