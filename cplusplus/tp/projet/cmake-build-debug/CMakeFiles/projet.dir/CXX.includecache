@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/yfleury/docs/univ2016-2017/cplusplus/tp/projet/Ressources.cpp
+Ressources.h
+/home/yfleury/docs/univ2016-2017/cplusplus/tp/projet/Ressources.h
+stddef.h
+-
+
+/home/yfleury/docs/univ2016-2017/cplusplus/tp/projet/Ressources.h
+fstream
+-
+iostream
+-
+
+/home/yfleury/docs/univ2016-2017/cplusplus/tp/projet/main.cpp
+iostream
+-
+Ressources.h
+/home/yfleury/docs/univ2016-2017/cplusplus/tp/projet/Ressources.h
+
