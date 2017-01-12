@@ -1,4 +1,0 @@
-/home/yfleury/bin/clion/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/yfleury/docs/univ2016-2017/cplusplus/tp/projet
--- Configuring done
--- Generating done
--- Build files have been written to: /home/yfleury/docs/univ2016-2017/cplusplus/tp/projet/cmake-build-debug
