@@ -67,8 +67,5 @@ disparait*/
         cout<<endl;
     }
 
-    User user("Toto" , "Tata");
-    //Anonymous anonymous(rand());
-
     return 0;
 }

@@ -80,8 +80,6 @@ Mem<T> & Mem<T>::operator=(const Mem<T> &m){
 //------------------------ MEMEXTEND
 
 template<class T> class Memextend: public Mem<T> {
-private:
-    T *point;
 
 public:
     string firstname;
@@ -90,10 +88,6 @@ public:
     Memextend(size_t s = 1);
     Memextend(const Memextend&);
     Memextend(string firstname, string lastname, size_t s = 1);
-    ~Memextend() {
-        cout << "Delete Memextend\n";
-        delete [] point;
-    }
 };
 
 template<class T>
@@ -102,42 +96,48 @@ Memextend<T>::Memextend(const Memextend &a) : Mem<T>(a) { }
 template<class T>
 Memextend<T>::Memextend(size_t s) : Mem<T>(s) {}
 
-Memextend::Memextend(string firstname, string lastname, size_t s) : firstname(firstname), lastname(lastname), Mem(s) {
+template<class T>
+Memextend<T>::Memextend(string firstname, string lastname, size_t s) : firstname(firstname), lastname(lastname), Mem<T>(s) {
 }
 
-class User : public Memextend<string> {
+template<class T> class User : public Memextend<T> {
 private:
     string password;
     string login;
 
 public:
-    User(const string first, const string last);
+    User(const string first, const string last, size_t s = 1);
 
     void setPassword(string password);
     void setLogin(string login);
 };
 
-User::User(const string first, const string last) : Memextend(first, last) {
+template<class T>
+User<T>::User(const string first, const string last, size_t s) : Memextend<T>(first, last, s) {
 }
 
-void User::setPassword(string password) {
+template<class T>
+void User<T>::setPassword(string password) {
     this->password = password;
 }
 
-void User::setLogin(string login) {
+template<class T>
+void User<T>::setLogin(string login) {
     this->login = login;
 }
 
-class Anonymous : public Memextend<string> {
+template<class T>
+class Anonymous : public Memextend<T> {
 private:
     string login;
 
 public:
-    Anonymous(const string login);
+    Anonymous(const string login, size_t s = 1);
 };
 
 
-Anonymous::Anonymous(const string login) : login(login) {
+template<class T>
+Anonymous<T>::Anonymous(const string login, size_t s) : login(login), Memextend<T>(s) {
 
 }
 
